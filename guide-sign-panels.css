@@ -1,0 +1,147 @@
+/* 신규·상세의 표지별 판 구성과 CAD 영역 지정. */
+#sign-library-screen .gg-sign-panels{display:block;min-width:0;padding:0;border:0}
+#sign-library-screen .gsp-editor{font-size:12px;min-width:0;color:var(--sl-text)}
+#sign-library-screen .gsp-parts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+#sign-library-screen .gsp-part{display:grid;grid-template-columns:57px minmax(0,1fr) 25px;gap:4px;align-items:center;border:1px solid var(--sl-line);padding:5px;border-radius:4px;min-width:0}
+#sign-library-screen .gsp-part[data-selected=true]{border-color:var(--sl-blue);background:var(--sl-select)}
+#sign-library-screen .gsp-part button{border:0;background:transparent;padding:4px 2px;white-space:nowrap}
+#sign-library-screen .gsp-part button[aria-pressed=true]{color:var(--sl-blue);font-weight:600}
+#sign-library-screen .gsp-editor select,#sign-library-screen .gsp-editor input[type=number]{width:100%;min-width:0;height:30px;padding:4px 7px;font-size:12px;color:var(--sl-danger);font-variant-numeric:tabular-nums}
+#sign-library-screen .gsp-editor button,#sign-library-screen .gsp-editor .sl-button{font-size:12px;min-height:28px;padding:5px 8px}
+#sign-library-screen .gsp-add{display:flex;align-items:center;gap:6px;margin:8px 0 12px;flex-wrap:wrap}
+#sign-library-screen .gsp-add>select{flex:1;min-width:150px;max-width:270px}
+#sign-library-screen .gsp-add>button,#sign-library-screen .gsp-add>label{white-space:nowrap}
+#sign-library-screen .gsp-selected{border-top:1px solid var(--sl-line);padding-top:9px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;align-items:start}
+#sign-library-screen .gsp-position .gsp-coordinates{grid-template-columns:1fr}
+#sign-library-screen .gsp-selected>.gsp-cad{border-top:0;padding-top:0}
+#sign-library-screen .gsp-link-layout{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:12px;align-items:start}
+#sign-library-screen .gsp-selected>strong{font-size:12px}
+#sign-library-screen .gsp-coordinates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:7px 0 10px}
+#sign-library-screen .gsp-coordinates label,#sign-library-screen .gsp-region-fields label{display:grid;gap:4px;min-width:0}
+#sign-library-screen .gsp-coordinates label>span,#sign-library-screen .gsp-region-fields label>span{font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gsp-cad{border-top:1px solid var(--sl-line);padding-top:8px}
+#sign-library-screen .gsp-cad summary{cursor:pointer;font-weight:600;margin-bottom:7px}
+#sign-library-screen [data-gsp-map]{max-width:100%;height:auto;margin:0 auto;background:#f4f6f8;border:1px solid var(--sl-line);border-radius:4px;touch-action:none;cursor:crosshair;display:block}
+#sign-library-screen .gsp-candidate{fill:transparent;stroke:#2863ad;stroke-width:2;stroke-dasharray:7 5;cursor:pointer}
+#sign-library-screen .gsp-candidate:hover{fill:#2863ad22}
+#sign-library-screen .gsp-region{fill:#2863ad25;stroke:#d32323;stroke-width:4;pointer-events:none}
+#sign-library-screen .gsp-map-tools{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:4px 0;color:var(--sl-sub);font-size:11px}
+#sign-library-screen .gsp-region-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#sign-library-screen .gsp-region-fields+.sl-sub{font-size:10px;margin:5px 0 0}
+#sign-library-screen .gsp-message:empty{display:none}
+#sign-library-screen .gsp-message{margin:7px 0;font-size:12px}
+#sign-library-screen .gsp-coordinate-table{width:100%;max-width:400px;margin:0;padding:0;color:#111;font-size:12px}
+#sign-library-screen .gsp-coordinate-table header{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:30px;margin-bottom:4px;flex-wrap:wrap}
+#sign-library-screen .gsp-coordinate-table h4{margin:0;font-size:13px}
+#sign-library-screen .gsp-coordinate-table header span{font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gsp-coordinate-table table{width:100%;table-layout:fixed;border-collapse:collapse;font-variant-numeric:tabular-nums}
+#sign-library-screen .gsp-coordinate-table th,#sign-library-screen .gsp-coordinate-table td{padding:4px 6px;border-bottom:1px solid var(--sl-line);text-align:right;color:#111;font-weight:400}
+#sign-library-screen .gsp-coordinate-table th:first-child{width:52px;text-align:left}
+#sign-library-screen .gsp-coordinate-table th:nth-child(3),#sign-library-screen .gsp-coordinate-table td:nth-child(3){border-right:1px solid var(--sl-line)}
+#sign-library-screen .gsp-coordinate-table thead{background:var(--sl-soft)}
+#sign-library-screen .gsp-coordinate-table tbody tr{cursor:pointer}
+#sign-library-screen .gsp-coordinate-table tbody tr:hover{background:var(--sl-soft)}
+#sign-library-screen .gsp-coordinate-table tbody tr.is-selected{background:var(--sl-select)}
+#sign-library-screen .gsp-coordinate-table tbody tr.is-selected th{box-shadow:inset 2px 0 var(--sl-blue)}
+#sign-library-screen .gsp-coordinate-table button{border:0;background:transparent;color:inherit;font:inherit;padding:0;min-height:0;white-space:nowrap;cursor:pointer}
+#sign-library-screen .gsp-coordinate-table button[aria-pressed=true]{color:var(--sl-blue)}
+#sign-library-screen .gsp-coordinate-table button:focus-visible{outline:1px solid var(--sl-blue);outline-offset:2px;border-radius:2px}
+#sign-library-screen .gsp-plan-origin{pointer-events:none;fill:none;stroke:#d32323;stroke-width:1.4;stroke-linecap:round}
+#sign-library-screen .gsp-plan-origin .gsp-origin-halo{stroke:white;stroke-width:3}
+#sign-library-screen .gsp-footer{display:flex;justify-content:flex-end;gap:6px;margin-top:9px}
+#sign-library-screen .gsp-footer .sl-primary{background:var(--sl-blue);color:white}
+@container(max-width:850px){#sign-library-screen .gsp-link-layout{grid-template-columns:1fr}#sign-library-screen .gsp-parts{grid-template-columns:1fr}#sign-library-screen .gsp-selected{grid-template-columns:100px minmax(0,1fr)}#sign-library-screen .gsp-region-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#sign-library-screen .gs-sign-position{height:100%;min-height:0;padding:12px;overflow:auto}
+
+/* 도안 선택 → 실제 규격 → 뷰의 간격 → 3D. 상세와 신규가 같은 공간을 쓴다. */
+#sign-library-screen .gg-registration-work{grid-template-columns:minmax(340px,44%) minmax(0,1fr);gap:18px}
+#sign-library-screen .gg-registration-work>[data-gsp-workspace]{height:clamp(430px,59vh,600px)}
+#sign-library-screen .gg-registration-cad{border:0;margin:0;padding:0}
+#sign-library-screen .gg-registration-plate{container:guide-plate / inline-size}
+#sign-library-screen .gg-plate-data{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:16px;align-items:start}
+#sign-library-screen .gg-plate-data:has(>.gsp-coordinate-table[hidden]){grid-template-columns:minmax(0,1fr)}
+#sign-library-screen .gg-plate-data>.gg-registration-cad{min-width:0}
+#sign-library-screen .gg-plate-data .gg-cad-fields{grid-template-columns:minmax(0,1fr);gap:6px;margin-top:6px}
+#sign-library-screen .gg-plate-data .gg-cad-fields .gg-field{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:8px}
+@container guide-plate (max-width:640px){#sign-library-screen .gg-plate-data{grid-template-columns:minmax(0,1fr);gap:12px}}
+#sign-library-screen .gg-registration-inputs{gap:12px}
+#sign-library-screen .gg-registration-post{padding-top:8px}
+#sign-library-screen .gsp-view-modes{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:6px 8px;background:var(--sl-soft);border-bottom:1px solid var(--sl-line);flex-shrink:0}
+#sign-library-screen .gsp-view-modes button{font-size:12px;padding:7px 10px}
+#sign-library-screen .gsp-directions{display:flex;gap:4px;flex-shrink:0}
+#sign-library-screen .gsp-conditions{display:flex;align-items:center;gap:7px;margin-left:auto;min-width:0}
+#sign-library-screen .gsp-conditions:empty{display:none}
+#sign-library-screen .gsp-conditions>div{display:flex;gap:4px;min-width:0}
+#sign-library-screen .gsp-conditions button{font-size:11px;padding:6px;border-color:transparent;white-space:nowrap;background:transparent;min-width:0;overflow:hidden;text-overflow:ellipsis}
+#sign-library-screen .gg-post-row.is-current{background:#f3f6fb;border-radius:3px}
+#sign-library-screen .gsp-main-plan{flex:1;min-height:0;position:relative;background:#f5f7fa;overflow:hidden}
+#sign-library-screen .gsp-plan-svg{display:block;width:100%;height:calc(100% - 28px)}
+#sign-library-screen .gsp-plan-caption{height:28px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--sl-sub);gap:12px;padding:0 8px;box-sizing:border-box}
+#sign-library-screen .gsp-plan-caption button{border:0;background:transparent;padding:2px 4px;font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gsp-plan-empty{height:100%;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;padding:20px;text-align:center;color:var(--sl-sub);font-size:13px}
+#sign-library-screen [data-gsp-workspace]:not([data-gsp-workspace="3d"])>.gg-view-content,#sign-library-screen [data-gsp-workspace]:not([data-gsp-workspace="3d"])>.gg-view-toolbar{display:none}
+#sign-library-screen [data-gsp-workspace]:not([data-gsp-workspace=cad])>.gsp-main-plan{display:none}
+#sign-library-screen .gsp-installation{display:none;flex:1;min-height:0;background:#f5f7fa;overflow:hidden}
+#sign-library-screen [data-gsp-workspace=installation]>.gsp-installation,#sign-library-screen [data-gsp-workspace=plan]>.gsp-installation{display:block}
+#sign-library-screen .gsp-installation>.gi-view,#sign-library-screen .gsp-installation .gi-position-canvas{width:100%;height:100%;margin:0;border:0;display:block}
+#sign-library-screen .gsp-plan-part{cursor:pointer;outline:0}
+#sign-library-screen .gsp-plan-fill{fill:white}
+#sign-library-screen .gsp-plan-outline{fill:transparent;stroke:#64748b;stroke-width:1.2}
+#sign-library-screen .gsp-plan-part.is-selected .gsp-plan-outline,#sign-library-screen .gsp-plan-part:focus .gsp-plan-outline{stroke:var(--sl-blue);stroke-width:2.5}
+#sign-library-screen .gsp-plan-tag{fill:white;stroke:#afbdce;stroke-width:1}
+#sign-library-screen .gsp-plan-part.is-selected .gsp-plan-tag{fill:var(--sl-blue);stroke:var(--sl-blue)}
+#sign-library-screen .gsp-plan-number{fill:#122f53;font-size:12px;pointer-events:none}
+#sign-library-screen .gsp-plan-warning circle{fill:#fff2cc;stroke:#b77900}
+#sign-library-screen .gsp-plan-warning text{fill:#895700;font-size:13px;font-weight:700}
+#sign-library-screen .gg-post-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+#sign-library-screen .gg-post-heading h3{margin:0}
+#sign-library-screen .gg-post-heading button{font-size:12px;padding:5px 8px}
+#sign-library-screen .gg-post-adder{display:grid;grid-template-columns:minmax(120px,1fr) minmax(160px,1.7fr);gap:8px;border-top:1px solid var(--sl-line);padding-top:10px;margin-top:8px}
+#sign-library-screen .gg-post-adder label{display:grid;gap:5px;color:var(--sl-sub);font-size:11px;min-width:0}
+#sign-library-screen .gg-post-adder select{min-width:0;width:100%;color:var(--sl-danger)}
+#sign-library-screen .gg-post-add-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:5px}
+#sign-library-screen .gg-post-adder p{grid-column:1/-1;color:var(--sl-danger);font-size:12px;margin:0}
+#sign-library-screen .gg-post-adder p:empty{display:none}
+#sign-library-screen .gg-new-post-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(130px,1.7fr) 28px;gap:6px;align-items:center;margin:7px 0}
+#sign-library-screen .gg-new-post-row label{display:grid;gap:4px;font-size:11px;color:var(--sl-sub);min-width:0}
+#sign-library-screen .gg-new-post-row select{width:100%;min-width:0;color:var(--sl-danger)}
+#sign-library-screen .gg-new-post-row button{padding:4px}
+#sign-library-screen .gg-new-post-row p{grid-column:1/3;font-size:11px;margin:0}
+#sign-library-screen .gg-new-post-row.is-current{background:var(--sl-select)}
+#sign-library-screen .gsp-plan-part.is-selected .gsp-plan-number{fill:white}
+#sign-library-screen .gsp-part-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+#sign-library-screen .gsp-part-tabs button{display:flex;align-items:center;gap:10px;padding:7px 10px}
+#sign-library-screen .gsp-part-tabs small{font-size:11px;font-variant-numeric:tabular-nums}
+#sign-library-screen .gsp-advanced{margin-top:12px;border-top:1px solid var(--sl-line);padding-top:10px}
+#sign-library-screen .gsp-advanced>summary{cursor:pointer;color:var(--sl-sub);font-size:12px}
+#sign-library-screen .gsp-advanced[open]>summary{margin-bottom:10px}
+#sign-library-screen .gsp-model-row{display:flex;gap:6px;align-items:center;margin:8px 0}
+#sign-library-screen .gsp-model-row select{flex:1}
+#sign-library-screen .gsp-model-row button{white-space:nowrap}
+#sign-library-screen .gg-unified>.gg-sign-panels{display:block!important;flex:none}
+#sign-library-screen .gsp-footer{border-top:1px solid var(--sl-line);padding:8px;margin:0;align-items:center;min-height:36px}
+#sign-library-screen [data-gsp-complete]{margin-right:auto;font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gsp-actions{display:flex;gap:6px}
+#sign-library-screen .gsp-footer:has([data-gsp-complete]:empty):not(:has(.gsp-actions:not([hidden]))){display:none}
+#sign-library-screen .gg-unified .gsp-message:not(:empty){margin:0;padding:7px 10px}
+@container(max-width:800px){#sign-library-screen .gg-registration-work>[data-gsp-workspace]{height:420px}#sign-library-screen .gsp-link-layout{grid-template-columns:1fr}}
+#sign-library-screen .gsp-view-modes button[aria-pressed=true]{background:var(--sl-select);border-color:var(--sl-blue);color:var(--sl-blue)}
+#sign-library-screen .gsp-popover{position:absolute;bottom:40px;right:12px;width:min(330px,calc(100% - 24px));padding:12px;background:white;border:1px solid #a9bbd2;border-radius:7px;box-shadow:0 6px 24px #122f5326;z-index:4;color:var(--sl-text)}
+#sign-library-screen .gsp-popover[data-side=left]{left:12px;right:auto}
+#sign-library-screen .gsp-popover header{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:13px}
+#sign-library-screen .gsp-popover header span{font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gsp-popover header button{margin-left:auto;border:0;font-size:18px;padding:0 5px;min-height:22px}
+#sign-library-screen .gsp-popover input,#sign-library-screen .gsp-popover select{color:var(--sl-danger);width:100%;min-width:0;font-variant-numeric:tabular-nums}
+#sign-library-screen .gsp-popover button,#sign-library-screen .gsp-popover select,#sign-library-screen .gsp-popover .sl-button{font-size:11px;padding:5px 7px;min-height:28px}
+#sign-library-screen .gsp-popover .gsp-popover-done{display:block;margin:10px 0 0 auto;color:var(--sl-blue)}
+#sign-library-screen .gsp-popover .gsp-advanced>label{display:grid;grid-template-columns:60px 1fr;align-items:center;gap:5px;margin-bottom:7px;font-size:12px}
+#sign-library-screen .gsp-popover .gsp-add{margin:8px 0 0}
+#sign-library-screen .gsp-popover .gsp-add select{flex-basis:100%;max-width:none}
+#sign-library-screen .gsp-popover:has(.gsp-advanced[open]){bottom:12px}
+#sign-library-screen .gsp-plan-svg input.gpa-inline{width:100%;height:26px;min-height:0;padding:2px 0;border:0;border-radius:0;background:transparent;color:var(--sl-danger);text-align:center;font:12px Arial,sans-serif;outline:0;box-shadow:none}
+#sign-library-screen .gsp-plan-svg input.gpa-inline:hover{text-decoration:underline;text-underline-offset:3px}
+#sign-library-screen .gsp-plan-svg input.gpa-inline:focus{background:transparent;outline:0;box-shadow:inset 0 -1px var(--sl-danger)}
+#sign-library-screen .gsp-plan-svg input.gpa-inline[aria-invalid=true]{box-shadow:inset 0 -1px var(--sl-danger)}
+
+#sign-library-screen .sl-sign-coordinates tbody tr{cursor:default}
+#sign-library-screen .sl-sign-coordinates tbody tr:hover{background:transparent}

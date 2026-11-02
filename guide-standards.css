@@ -1,0 +1,389 @@
+/* 안내 공통 규격과 지주별 설치 조합. 기존 관리 화면의 색과 조작 방식을 따른다. */
+#sign-library-screen .gpc-workspace{display:grid;grid-template-columns:minmax(260px,29%) minmax(260px,30%) minmax(0,1fr);height:100%;min-height:0;overflow:hidden}
+#sign-library-screen .gpc-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid var(--sl-line);flex:none;font-size:14px}
+#sign-library-screen .gpc-heading small{font-size:11px;font-weight:400;color:var(--sl-sub)}
+#sign-library-screen .gpc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:6px;padding:6px}
+#sign-library-screen .gpc-grid .gs-spec-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:120px;text-align:center;padding:8px 4px;border:1px solid transparent;border-radius:4px;font-size:12px}
+#sign-library-screen .gpc-grid .gs-spec-row[aria-pressed=true]{border-color:var(--sl-blue)}
+#sign-library-screen .gpc-grid .gs-kind-icon{width:100%;max-width:100px;height:61px}
+#sign-library-screen .gpc-grid svg{height:100%}
+#sign-library-screen .gpc-preview{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--sl-line);background:var(--sl-soft)}
+#sign-library-screen .gpc-preview .gs-diagram{flex:1;min-height:0;height:auto;padding:12px;color:var(--sl-text)}
+#sign-library-screen .gpc-preview .gs-diagram .gs-dimensions text{fill:var(--sl-text)}
+#sign-library-screen .gpc-preview>p{font-size:11px;color:var(--sl-sub);margin:0;padding:8px 12px;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gpc-usages{display:flex;flex-direction:column;min-height:0;min-width:0}
+#sign-library-screen .gpc-use-scroll{overflow:auto;min-height:0;flex:1;padding:0 12px;overscroll-behavior:contain}
+#sign-library-screen .gpc-sign{padding:12px 0;border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gpc-sign>header{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+#sign-library-screen .gpc-sign img{width:92px;height:70px;object-fit:contain}
+#sign-library-screen .gpc-sign strong{font-size:13px}
+#sign-library-screen .gpc-sign strong span{font-weight:400}
+#sign-library-screen .gpc-sign small{display:block;margin-top:4px;font-size:11px;color:var(--sl-sub);line-height:1.5}
+#sign-library-screen .gpc-use{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--sl-line);font-size:12px}
+#sign-library-screen .gpc-use>div{min-width:0;overflow-wrap:anywhere}
+#sign-library-screen .gpc-use .sl-button{flex:none;font-size:11px;padding:5px 8px;min-height:30px}
+@media(max-width:1100px){#sign-library-screen .gpc-workspace{grid-template-columns:minmax(210px,28%) minmax(200px,28%) minmax(0,1fr)}#sign-library-screen .gpc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:750px){#sign-library-screen .gpc-workspace{grid-template-columns:minmax(140px,35%) minmax(0,1fr);grid-template-rows:240px minmax(0,1fr)}#sign-library-screen .gpc-workspace>.gs-specifications{grid-row:1/3}#sign-library-screen .gpc-preview{grid-column:2;border-bottom:1px solid var(--sl-line)}#sign-library-screen .gpc-usages{grid-column:2}#sign-library-screen .gpc-grid{grid-template-columns:1fr}}
+#sign-library-screen.gs-screen{height:100dvh;min-height:0;overflow:hidden}
+#sign-library-screen.gs-screen>.sl-head,#sign-library-screen.gs-screen>.gs-navigation{flex:none}
+#sign-library-screen .gs-navigation{display:flex;flex-direction:column}
+#sign-library-screen .gs-primary-navigation,#sign-library-screen .gs-panel-navigation{display:flex;align-items:center;min-width:0}
+#sign-library-screen .gs-primary-navigation>.sl-main-tabs{flex:none;border-bottom:0;padding:0 12px;gap:20px}
+#sign-library-screen .gs-panel-navigation{border-top:1px solid var(--sl-line);background:var(--sl-soft)}
+#sign-library-screen .gs-panel-tabs{display:flex;gap:3px;align-items:center;padding:0 12px}
+#sign-library-screen .gs-panel-tabs button{border:1px solid transparent;border-radius:4px;background:transparent;padding:5px 10px;min-height:30px;color:var(--sl-text);white-space:nowrap}
+#sign-library-screen .gs-panel-tabs button[aria-pressed=true]{border-color:#2460b8;background:#e7effb;color:#174f9c}
+#sign-library-screen .gs-toolbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:4px 12px;flex:1 1 280px;min-width:0}
+#sign-library-screen .gs-toolbar input{border:1px solid var(--sl-line);border-radius:4px;background:var(--sl-bg);color:var(--sl-text);padding:5px 9px;min-height:30px;min-width:100px;max-width:260px;flex:1}
+#sign-library-screen .gs-toolbar .sl-button{min-height:30px;padding:5px 10px;white-space:nowrap}
+#sign-library-screen .gs-mode{display:flex;gap:3px}
+#sign-library-screen .gs-work{grid-template-columns:280px minmax(0,1fr);flex:1;min-height:0;overflow:hidden;align-items:stretch;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gs-list{overflow:auto;padding:12px;min-height:0;border-right:1px solid var(--sl-line)}
+#sign-library-screen .gs-count{font-size:12px;color:var(--sl-sub);margin:0 8px 12px}
+#sign-library-screen .gs-item{display:flex;align-items:center;gap:12px;min-height:72px;width:100%;padding:12px 10px;text-align:left;white-space:normal;background:transparent;border:1px solid transparent;border-radius:4px}
+#sign-library-screen .gs-kind-icon{width:46px;flex:none}
+#sign-library-screen .gs-kind-icon svg,#sign-library-screen .gs-diagram svg{width:100%;display:block;fill:var(--sl-soft);stroke:currentColor;stroke-width:1.5}
+#sign-library-screen .gs-kind-icon svg{stroke-width:3}
+#sign-library-screen .gs-kind-icon text,#sign-library-screen .gs-diagram text{fill:currentColor;stroke:none;font-size:25px}
+#sign-library-screen .gs-item span{min-width:0}
+#sign-library-screen .gs-item strong{font-size:13px;font-weight:500}
+#sign-library-screen .gs-item small{display:block;font-size:11px;color:var(--sl-sub);margin-top:5px;overflow-wrap:anywhere}
+#sign-library-screen .gs-item:hover{background:var(--sl-soft)}
+#sign-library-screen .gs-item[aria-pressed=true]{background:var(--sl-select);border-color:var(--sl-blue);color:var(--sl-blue)}
+#sign-library-screen .gs-content{display:block;width:auto;margin:0;padding:22px 30px 36px;min-width:0;min-height:0;max-height:none;overflow:auto;border:0}
+#sign-library-screen .gs-detail-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}
+#sign-library-screen .gs-detail-head p{color:var(--sl-sub);font-size:12px;margin:0 0 5px}
+#sign-library-screen .gs-detail-head h2{font-size:20px;font-weight:600;margin:0}
+#sign-library-screen .gs-content h3{font-size:14px;font-weight:600;margin:0 0 12px}
+#sign-library-screen .gs-tag{color:var(--sl-sub);background:var(--sl-soft);padding:5px 10px;font-size:12px;border-radius:4px}
+#sign-library-screen .gs-family-work{grid-template-columns:minmax(0,1fr)}
+#sign-library-screen .gs-family-work>.gs-list{display:none}
+#sign-library-screen .gs-family-work .gs-content{padding:0;overflow:hidden}
+#sign-library-screen .gs-editor-actions{display:flex;gap:6px}
+#sign-library-screen .gs-specifications{display:flex;flex-direction:column;min-height:0;min-width:0;border-right:1px solid var(--sl-line)}
+#sign-library-screen .gs-spec-heading{display:flex;justify-content:space-between;flex:none;padding:12px 16px;font-size:12px;color:var(--sl-sub);border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gs-spec-scroll{overflow:auto;min-height:0;flex:1;overscroll-behavior:contain;scrollbar-gutter:stable}
+#sign-library-screen .gs-spec-row{display:block;width:100%;padding:12px 16px;min-height:44px;border:0;border-radius:0;border-bottom:1px solid var(--sl-line);background:var(--sl-bg);text-align:left;font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums;white-space:normal}
+#sign-library-screen .gs-spec-row b{font-size:13px;font-weight:400}
+#sign-library-screen .gs-spec-row small{font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gs-spec-row:hover{background:var(--sl-soft)}
+#sign-library-screen .gs-spec-row[aria-pressed=true]{background:var(--sl-select);box-shadow:inset 3px 0 var(--sl-blue);color:var(--sl-blue)}
+#sign-library-screen .gs-preview{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--sl-soft);padding:18px 24px;overflow:hidden}
+#sign-library-screen .gs-preview-canvas{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;overflow:hidden;padding:12px 0}
+#sign-library-screen .gs-diagram{width:100%;height:100%;min-height:0}
+#sign-library-screen .gs-diagram svg{width:100%;height:100%;fill:var(--sl-bg);stroke-width:.6}
+#sign-library-screen .gs-diagram .gs-dimensions{fill:none;stroke-width:.35}
+#sign-library-screen .gs-diagram .gs-dimensions text{fill:var(--sl-danger);font-size:8px;font-variant-numeric:tabular-nums}
+#sign-library-screen .gs-diagram .gs-part-name{fill:var(--sl-sub);font-size:6px}
+#sign-library-screen .gs-spec-editor{padding:16px 12px}
+#sign-library-screen .gs-spec-editor input{width:100%;min-width:0;border:1px solid var(--sl-line);border-radius:3px;padding:8px 5px;font:inherit;font-size:13px;color:var(--sl-danger);background:var(--sl-bg)}
+#sign-library-screen .gs-editor-actions{margin-top:16px}
+#sign-library-screen .gs-error{grid-column:1/-1;margin:0;padding:10px 16px;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gs-note{font-size:12px;line-height:1.6;color:var(--sl-sub);margin:12px 0}
+#sign-library-screen .gs-table-wrap{overflow:auto}
+#sign-library-screen .gs-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;line-height:1.6}
+#sign-library-screen .gs-table th,#sign-library-screen .gs-table td{border-bottom:1px solid var(--sl-line);padding:12px 14px;font-weight:400;vertical-align:top;min-width:85px}
+#sign-library-screen .gs-table thead{background:var(--sl-soft);color:var(--sl-sub);font-size:12px}
+#sign-library-screen .gs-table tbody th{white-space:nowrap}
+#sign-library-screen .gs-table .sl-button{font-size:12px;padding:4px 8px;min-height:30px;white-space:normal;text-align:left}
+#sign-library-screen .gs-section{margin-top:26px;padding-top:22px;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gs-detail-head+.gs-section{border-top:0;padding-top:0}
+#sign-library-screen .gs-links{display:flex;flex-wrap:wrap;gap:8px}
+#sign-library-screen .gs-links .sl-button{font-size:12px;padding:7px 10px;min-height:32px;text-align:left;white-space:normal}
+#sign-library-screen .gs-definitions{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;margin:0 0 20px}
+#sign-library-screen .gs-definitions dt{color:var(--sl-sub);font-size:12px}
+#sign-library-screen .gs-definitions dd{margin:0;font-size:14px;overflow-wrap:anywhere}
+#sign-library-screen .gs-model{display:block;margin-bottom:4px}
+#sign-library-screen .gs-figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:18px 0}
+#sign-library-screen .gs-figures figure{margin:0;min-width:0}
+#sign-library-screen .gs-figures figcaption{font-size:12px;margin-bottom:10px}
+#sign-library-screen .gs-figures a{display:block;background:white;border:1px solid var(--sl-line);padding:12px}
+#sign-library-screen .gs-figures img{width:100%;height:250px;object-fit:contain}
+#sign-library-screen .gs-empty{padding:30px 0;color:var(--sl-sub)}
+@media(min-width:1600px){#sign-library-screen .gs-content{padding-left:44px;padding-right:44px}}
+@media(max-width:1100px){#sign-library-screen .gs-work{grid-template-columns:170px minmax(0,1fr)}#sign-library-screen .gs-content{padding:20px}}
+@media(max-width:700px){#sign-library-screen .gs-work{grid-template-columns:1fr;overflow:auto;display:block}#sign-library-screen .gs-list{max-height:210px;border-right:0;border-bottom:1px solid var(--sl-line)}#sign-library-screen .gs-content{overflow:visible;padding:18px 12px}#sign-library-screen .gs-detail-head h2{font-size:18px}}
+
+/* 형태별 규격 탐색과 치수 직접 편집. 작업면은 항상 고정한다. */
+#sign-library-screen .gc-workspace{display:grid;grid-template-columns:260px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;height:100%;min-height:0}
+#sign-library-screen .gs-family-work .gs-content{padding:0;overflow:hidden}
+#sign-library-screen .gc-workspace .gs-spec-heading{align-items:center;padding:12px 16px;gap:8px;min-height:56px}
+#sign-library-screen .gc-workspace .gs-spec-heading strong{font-weight:500}
+#sign-library-screen .gc-workspace .sl-button{font-size:12px;min-height:32px;padding:5px 12px;white-space:nowrap}
+#sign-library-screen .gc-family-row{display:flex;align-items:center;gap:12px;width:100%;padding:16px 14px;min-height:86px;border:0;border-bottom:1px solid var(--sl-line);background:var(--sl-bg);text-align:left;white-space:normal;color:var(--sl-text)}
+#sign-library-screen .gc-family-row:hover{background:var(--sl-soft)}
+#sign-library-screen .gc-family-row[aria-pressed=true]{background:var(--sl-select);box-shadow:inset 3px 0 var(--sl-blue)}
+#sign-library-screen .gc-thumb{display:block;width:54px;height:44px;flex:none}
+#sign-library-screen .gc-thumb svg,#sign-library-screen .gc-size-thumb svg{width:100%;height:100%;fill:white;stroke:var(--sl-text);stroke-width:12}
+#sign-library-screen .gc-row-label{display:block;min-width:0;flex:1}
+#sign-library-screen .gc-row-label b{display:block;font-size:13px;font-weight:500;line-height:1.5}
+#sign-library-screen .gc-row-label small{display:block;font-size:11px;color:var(--sl-sub);margin-top:5px}
+#sign-library-screen .gc-chevron{color:var(--sl-sub);font-size:16px}
+#sign-library-screen .gc-family-sizes{padding:4px 8px 8px;background:var(--sl-soft)}
+#sign-library-screen .gc-family-sizes .gs-spec-row{display:flex;align-items:center;gap:8px;padding:9px 10px;min-height:46px;border-bottom:0;font-size:12px;background:transparent;color:var(--sl-text)}
+#sign-library-screen .gc-family-sizes .gs-spec-row[aria-pressed=true]{background:var(--sl-select);color:var(--sl-blue)}
+#sign-library-screen .gc-size-thumb{display:block;width:36px;height:28px;flex:none}
+#sign-library-screen .gc-workspace .gs-preview{padding:0;position:relative}
+#sign-library-screen .gc-canvas-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;min-height:56px;flex:none;border-bottom:1px solid var(--sl-line);background:var(--sl-bg)}
+#sign-library-screen .gc-selection{display:flex;align-items:center;gap:12px;font-size:13px;min-width:0}
+#sign-library-screen .gc-selection strong{font-weight:500}
+#sign-library-screen .gc-selection span{color:var(--sl-sub);font-size:12px}
+#sign-library-screen .gc-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-left:auto}
+#sign-library-screen .gc-tool-divider{width:1px;height:20px;background:var(--sl-line);margin:0 4px}
+#sign-library-screen .gc-workspace .gs-preview-canvas{padding:10px 20px}
+#sign-library-screen .gc-diagram svg{stroke-width:2;overflow:visible}
+#sign-library-screen .gc-plate{cursor:pointer;outline:none}
+#sign-library-screen .gc-plate>path,#sign-library-screen .gc-plate>rect{fill:var(--sl-bg);stroke:#909dab}
+#sign-library-screen .gc-plate.is-selected>path,#sign-library-screen .gc-plate.is-selected>rect{fill:var(--sl-select);stroke:var(--sl-blue);stroke-width:2}
+#sign-library-screen .gc-plate:focus>path,#sign-library-screen .gc-plate:focus>rect{stroke:var(--sl-blue);stroke-width:3}
+#sign-library-screen .gc-diagram .gc-plate text{font-size:14px;fill:var(--sl-sub);stroke:none;pointer-events:none}
+#sign-library-screen .gc-diagram .gc-dimensions{fill:none;stroke:#586779;stroke-width:1;pointer-events:none}
+#sign-library-screen .gc-diagram .gc-dimensions text{font-size:16px;fill:var(--sl-danger);stroke:none;font-variant-numeric:tabular-nums;pointer-events:auto;cursor:text;outline:none}
+#sign-library-screen .gc-diagram .gc-dimensions text:hover,#sign-library-screen .gc-diagram .gc-dimensions text:focus{text-decoration:underline}
+#sign-library-screen .gc-position-line{stroke:#9ca9b7;stroke-dasharray:3 3}
+#sign-library-screen .gc-origin{stroke:#768393}
+#sign-library-screen .gc-canvas-note{display:flex;justify-content:space-between;padding:10px 20px;color:var(--sl-sub);font-size:11px;flex:none;gap:12px}
+#sign-library-screen .gc-axis-form,#sign-library-screen .gc-shape-menu{position:absolute;z-index:2;right:20px;top:68px;display:flex;align-items:flex-end;gap:8px;padding:14px;background:var(--sl-bg);border:1px solid var(--sl-line);border-radius:4px;box-shadow:0 5px 18px #1e334b12}
+#sign-library-screen .gc-axis-form label{font-size:12px;color:var(--sl-sub);display:block}
+#sign-library-screen .gc-axis-form small{font-size:10px;margin-left:10px}
+#sign-library-screen .gc-axis-form input{display:block;width:130px;min-height:34px;margin-top:8px;padding:5px 8px;border:1px solid var(--sl-blue);border-radius:3px;font:inherit;font-size:14px;color:var(--sl-danger)}
+#sign-library-screen .gc-shape-menu{right:auto;align-items:stretch;flex-direction:column;gap:2px;width:145px;padding:6px;overflow:auto}
+#sign-library-screen .gc-shape-menu button{background:white;border:0;border-radius:2px;padding:9px 12px;text-align:left;font-size:12px}
+#sign-library-screen .gc-shape-menu button[aria-pressed=true]{background:var(--sl-select);color:var(--sl-blue)}
+
+/* 안내 지주: 목록과 작업면은 고정하고 편집 항목만 별도 스크롤한다. */
+#sign-library-screen .gs-work.gs-post-work{grid-template-columns:30% minmax(0,1fr)}
+#sign-library-screen .gs-post-work .gs-list{padding:8px;overflow-x:hidden}
+#sign-library-screen .gp-road{margin-bottom:18px}
+#sign-library-screen .gp-road>h3{display:flex;justify-content:space-between;gap:6px;margin:0 0 8px;padding:6px 2px;border-bottom:1px solid var(--sl-line);font-size:13px;font-weight:500}
+#sign-library-screen .gp-road>h3 small{color:var(--sl-sub);font-weight:400}
+#sign-library-screen .gp-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+#sign-library-screen .gp-cards .sl-post-card{min-height:154px;padding:10px 4px;gap:5px;justify-content:center;overflow-wrap:anywhere}
+#sign-library-screen .gp-cards .sl-post-icon{height:60px}
+#sign-library-screen .gp-cards .sl-post-icon svg{width:100%;height:100%;max-width:130px}
+#sign-library-screen .gp-cards .sl-post-kind,#sign-library-screen .gp-cards .sl-post-size,#sign-library-screen .gp-cards small{font-size:11px;line-height:16px}
+#sign-library-screen .gp-cards .sl-post-number{font-size:13px;line-height:18px;color:var(--sl-text)}
+#sign-library-screen .gs-post-work .gs-content{padding:10px 14px;overflow:hidden}
+#sign-library-screen .gp-workspace{height:100%;display:flex;flex-direction:column;min-height:0;gap:8px}
+#sign-library-screen .gp-header,#sign-library-screen .gp-toolbar,#sign-library-screen .gp-model-fields>header{display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;flex:none}
+#sign-library-screen .gp-header strong{font-size:17px;font-weight:600}
+#sign-library-screen .gp-toolbar>div,#sign-library-screen .gp-components{display:flex;gap:4px;flex-wrap:wrap}
+#sign-library-screen .gp-workspace .sl-button{font-size:12px;padding:4px 8px;min-height:29px}
+#sign-library-screen .gp-workspace [aria-pressed=true]{background:var(--sl-select);border-color:var(--sl-blue);color:var(--sl-blue)}
+#sign-library-screen .gp-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);flex:1;min-height:0;gap:16px}
+#sign-library-screen .gp-preview{display:flex;flex-direction:column;min-height:0;min-width:0;background:var(--sl-soft);border:1px solid var(--sl-line);border-radius:5px;overflow:hidden}
+#sign-library-screen .gp-toolbar,#sign-library-screen .gp-components{padding:7px}
+#sign-library-screen .gp-components{padding-top:0}
+#sign-library-screen .gp-stage{height:auto;min-height:0;max-height:none;min-width:0;flex:1;border:0;border-top:1px solid var(--sl-line);border-radius:0}
+#sign-library-screen .gp-information{overflow-y:auto;overflow-x:hidden;min-height:0;min-width:0;font-size:12px;background:var(--sl-bg);scrollbar-gutter:stable}
+#sign-library-screen .gp-basics{display:grid;grid-template-columns:minmax(75px,.8fr) minmax(75px,.8fr) minmax(0,1.4fr);gap:10px;margin:0}
+#sign-library-screen .gp-basics dt{color:var(--sl-sub);margin:0 0 7px}
+#sign-library-screen .gp-basics dd{margin:0;color:var(--sl-text);overflow-wrap:anywhere}
+#sign-library-screen .gp-editor{display:flex;flex-direction:column;gap:10px}
+#sign-library-screen .gp-editor label{display:flex;flex-direction:column;gap:5px;color:var(--sl-sub);min-width:0}
+#sign-library-screen .gp-editor input,#sign-library-screen .gp-editor select{width:100%;min-width:0;min-height:30px;border:1px solid var(--sl-line);border-radius:3px;padding:4px;font:inherit;background:white;color:var(--sl-danger)}
+#sign-library-screen .gp-editor select:disabled{color:var(--sl-text);background:var(--sl-soft)}
+#sign-library-screen .gp-model-fields{display:flex;flex-direction:column;gap:5px;margin:12px 0 0}
+#sign-library-screen .gp-model-row{display:flex;align-items:end;gap:5px;min-width:0}
+#sign-library-screen .gp-model-row>label:first-child{flex:1}
+#sign-library-screen .gp-model-name{overflow-wrap:anywhere;color:var(--sl-text)}
+#sign-library-screen .gp-information h3{font-size:13px;margin:0 0 6px}
+#sign-library-screen .gp-model-fields h3{margin:0}
+#sign-library-screen .gp-section{border-top:1px solid var(--sl-line);margin-top:8px;padding-top:7px}
+#sign-library-screen .gp-section .gs-section{margin:0;padding:0;border:0}
+#sign-library-screen .gp-section .gs-table-wrap{overflow:visible}
+#sign-library-screen .gp-section .gs-table{font-size:12px;table-layout:fixed}
+#sign-library-screen .gp-section .gs-table th,#sign-library-screen .gp-section .gs-table td{min-width:0;padding:6px 4px;white-space:normal;overflow-wrap:anywhere}
+#sign-library-screen .gp-section .gs-empty{margin:6px 0;padding:0;font-size:12px;text-align:left}
+#sign-library-screen .gp-section .gs-links{gap:5px}
+#sign-library-screen .gp-section .gs-links .sl-button{font-size:11px;min-height:27px;padding:4px 6px}
+#sign-library-screen .gp-footer{display:flex;justify-content:flex-end;gap:6px;border-top:1px solid var(--sl-line);padding-top:6px;flex:none}
+#sign-library-screen .gp-quantity-choice{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--sl-sub)}
+#sign-library-screen .gp-quantity-choice select{min-width:0;flex:1;height:30px;border:1px solid var(--sl-line);border-radius:3px;background:white;font:inherit;color:var(--sl-text)}
+#sign-library-screen .gp-information .sl-quantity-table{width:100%;table-layout:fixed;font-size:12px}
+#sign-library-screen .gp-information .sl-quantity-table th,#sign-library-screen .gp-information .sl-quantity-table td{padding:4px;min-width:0;overflow-wrap:anywhere}
+#sign-library-screen .gp-information .sl-quantity-table th small{display:inline;font-size:10px;margin-left:6px}
+#sign-library-screen .gp-information p.sl-sub{font-size:11px;line-height:1.45;margin:6px 0}
+#sign-library-screen .gp-document-picker>summary{cursor:pointer;color:var(--sl-danger);padding:8px 0}
+#sign-library-screen .gp-quantity-reference{margin:6px 0}
+#sign-library-screen .gp-quantity-reference>summary{cursor:pointer;color:var(--sl-text)}
+#sign-library-screen .gp-stage .sl-camera-tools,#sign-library-screen .gp-stage .sl-camera-help{display:none}
+#sign-library-screen .gp-site-view{overflow:auto;padding:10px;background:white}
+#sign-library-screen .gp-site-view .gs-section{margin:0;padding:0;border:0}
+#sign-library-screen .gp-site-view .gs-figures{grid-template-columns:1fr;margin:8px 0}
+#sign-library-screen .gp-site-view .gs-section>.gs-table-wrap,#sign-library-screen .gp-site-view .gs-section>h3:first-child{display:none}
+#sign-library-screen .gp-site-view .gs-figures img{max-height:230px;object-fit:contain}
+#sign-library-screen .gp-error{margin:0;flex:none}
+#sign-library-screen .gp-model-warning{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:4px;border-radius:50%;background:#c62828;color:#fff;font:700 11px/1 Arial;vertical-align:middle}
+#sign-library-screen .gp-upload-field{position:relative;display:block!important;overflow:hidden;border:1px solid var(--sl-line);border-radius:3px;padding:7px;white-space:nowrap;color:var(--sl-text)!important;cursor:pointer}
+#sign-library-screen .gp-upload-field input{position:absolute;inset:0;opacity:0;cursor:pointer}
+#sign-library-screen .gp-upload-field:focus-within{outline:2px solid var(--sl-blue)}
+@media(max-width:1400px){#sign-library-screen .gs-work.gs-post-work{grid-template-columns:27% minmax(0,1fr)}#sign-library-screen .gp-body{gap:10px;grid-template-columns:minmax(0,.95fr) minmax(0,1fr)}#sign-library-screen .gp-cards .sl-post-card{min-height:142px}#sign-library-screen .gp-basics{gap:6px;grid-template-columns:1fr 1fr}#sign-library-screen .gp-basics>*:last-child{grid-column:1/-1}}
+@media(max-width:900px){#sign-library-screen .gp-cards{grid-template-columns:repeat(2,minmax(0,1fr))}#sign-library-screen .gp-body{display:flex;flex-direction:column;overflow:auto}#sign-library-screen .gp-preview{height:380px;flex:none}#sign-library-screen .gp-information{overflow:visible;flex:none}#sign-library-screen .gs-post-work .gs-content{padding:8px}}
+
+#sign-library-screen .gc-workspace .gs-error:empty{display:none}
+@media(max-width:1100px){
+ #sign-library-screen .gs-work.gs-family-work{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);overflow:hidden;display:grid}
+ #sign-library-screen .gc-workspace{grid-template-columns:220px minmax(0,1fr)}
+ #sign-library-screen .gc-canvas-head{padding:10px 12px}
+ #sign-library-screen .gc-workspace .gs-preview-canvas{padding:8px}
+ #sign-library-screen .gc-workspace .sl-button{padding:5px 9px}
+}
+@media(max-width:700px){
+ #sign-library-screen .gc-workspace{grid-template-columns:180px minmax(0,1fr)}
+ #sign-library-screen .gc-family-row{padding:12px 10px;gap:8px}
+ #sign-library-screen .gc-thumb{width:36px;height:32px}
+ #sign-library-screen .gc-canvas-note{padding:10px;font-size:10px}
+ #sign-library-screen .gc-axis-form{right:10px;top:105px}
+}
+
+/* 설치 좌표 작업면은 하나로 고정하고 규격 목록만 스크롤한다. */
+#sign-library-screen .gi-installation{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0;background:var(--sl-bg)}
+#sign-library-screen .gi-installation>header,#sign-library-screen .gi-form>footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;flex:none}
+#sign-library-screen .gi-installation>header{border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gi-choices{display:flex;gap:5px;max-height:70px;overflow:auto;flex-wrap:wrap;min-width:0}
+#sign-library-screen .gi-choices button{font-size:12px;padding:6px 10px;border:1px solid var(--sl-line);background:var(--sl-bg)}
+#sign-library-screen .gi-choices button[aria-pressed=true]{background:var(--sl-select);color:var(--sl-blue);border-color:var(--sl-blue)}
+#sign-library-screen .gi-form{display:flex;flex-direction:column;flex:1;min-height:0}
+#sign-library-screen .gi-form>footer{border-top:1px solid var(--sl-line)}
+#sign-library-screen .gi-form>footer>div{display:flex;gap:6px}
+#sign-library-screen .gi-post{display:flex;align-items:center;gap:10px;padding:8px 18px;font-size:12px;color:var(--sl-sub)}
+#sign-library-screen .gi-post select{min-width:240px;border:1px solid var(--sl-line);padding:7px;background:var(--sl-bg);border-radius:3px;font:inherit}
+#sign-library-screen .gi-model{flex:1;min-height:0;overflow:hidden;background:var(--sl-soft);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:1px}
+#sign-library-screen .gi-view{min-width:0;min-height:0;display:flex;flex-direction:column;outline:1px solid var(--sl-line)}
+#sign-library-screen .gi-view>header{height:26px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:12px;color:var(--sl-sub)}
+#sign-library-screen .gi-view>header>span{font-size:10px}
+#sign-library-screen .gi-model svg{width:100%;height:calc(100% - 26px);flex:1;min-height:0;display:block}
+#sign-library-screen .gi-model>.gi-coordinate-empty,#sign-library-screen .gi-model>.sl-empty{grid-column:1/-1;grid-row:1/-1}
+#sign-library-screen .gi-dimension path{fill:none;stroke:#526477;stroke-width:1.3}
+#sign-library-screen .gi-dimension{cursor:text;outline:none}
+#sign-library-screen .gi-dimension text{fill:var(--sl-danger);stroke:var(--sl-soft);stroke-width:6px;paint-order:stroke;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+#sign-library-screen .gi-dimension:hover text,#sign-library-screen .gi-dimension:focus text{text-decoration:underline}
+#sign-library-screen .gi-reference path{fill:none;stroke:#d32323;stroke-width:1.5;pointer-events:none}
+#sign-library-screen .gi-reference-post path{stroke:#255fa8}
+#sign-library-screen .gi-reference .gi-origin-halo{stroke:#fff;stroke-width:3.5}
+#sign-library-screen .gi-coordinate-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--sl-sub);font-size:13px}
+#sign-library-screen .gi-coordinate-empty>div{display:flex;gap:8px}
+#sign-library-screen .gi-coordinate-empty button{color:var(--sl-danger)}
+#sign-library-screen .gi-message{display:flex;align-items:center;gap:10px;flex:none;font-size:14px;color:var(--sl-danger);margin:0;padding:10px 18px;background:#fff9f6;border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gi-message>div{display:flex;gap:6px}
+#sign-library-screen .gi-message:empty{display:none}
+#sign-library-screen .gi-form .sl-sub{margin:0;line-height:1.5}
+#sign-library-screen .gp-model-warning.is-warning{background:#f4c430;color:#302600}
+#sign-library-screen .gi-message.is-warning,#sign-library-screen .gp-model-notice{color:#322b19;background:#fff8dc;font-size:14px;font-weight:500}
+#sign-library-screen .gp-model-notice{padding:10px 12px;margin:0;border:1px solid #e5cc78;border-radius:4px}
+#sign-library-screen .gi-size{flex:none}
+
+#sign-library-screen .gc-missing-dimensions{margin:auto;max-width:560px;padding:32px;color:#1b2d45}
+#sign-library-screen .gc-missing-dimensions h2{font-size:18px;margin:0 0 16px}
+#sign-library-screen .gc-missing-dimensions p{line-height:1.65}
+#sign-library-screen .gi-size{color:#b42318}
+
+/* 교통 공통데이터와 같은 규격 격자 · 중앙 뷰 · 우측 입력표. */
+#sign-library-screen .gc-grid-workspace{grid-template-columns:30% minmax(0,1fr)}
+#sign-library-screen .gc-grid-workspace .gs-specifications{padding:8px;box-sizing:border-box}
+#sign-library-screen .gc-grid-workspace .gs-spec-scroll{padding:0}
+#sign-library-screen .gc-grid-workspace .gc-family+.gc-family{margin-top:14px}
+#sign-library-screen .gc-grid-workspace .gc-family-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;margin:0 0 7px;padding:5px 0;border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gc-family-heading small{font-size:11px;font-weight:400;color:var(--sl-sub)}
+#sign-library-screen .gc-family-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+#sign-library-screen .gc-family-grid .gs-spec-row{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;padding:8px 4px;min-height:132px;border:1px solid transparent;border-radius:4px;font-size:12px}
+#sign-library-screen .gc-family-grid .gs-spec-row[aria-pressed=true]{border-color:var(--sl-blue);color:var(--sl-blue);background:var(--sl-select)}
+#sign-library-screen .gc-family-grid .gc-size-thumb{width:100%;height:64px}
+#sign-library-screen .gc-family-grid .gc-size-thumb svg{stroke:var(--sl-blue);stroke-width:10}
+#sign-library-screen .gc-family-grid .gc-plate>path,#sign-library-screen .gc-family-grid .gc-plate>rect{stroke:var(--sl-blue)}
+#sign-library-screen .gc-family-grid small{font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gc-grid-workspace .gs-preview{min-width:0;min-height:0;overflow:hidden}
+#sign-library-screen .gi-workspace{padding:8px 12px 10px;display:flex;flex-direction:column;overflow:hidden}
+#sign-library-screen .gi-workspace>.gi-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 0 8px;border:0;min-height:32px}
+#sign-library-screen .gi-heading strong{font-size:17px;font-weight:600;color:var(--sl-text)}
+#sign-library-screen .gi-heading small,#sign-library-screen .gi-heading>span{font-size:11px;color:var(--sl-sub);font-weight:400}
+#sign-library-screen .gi-columns{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:14px;flex:1;min-height:0;min-width:0}
+#sign-library-screen .gi-preview{display:flex;flex-direction:column;min-width:0;min-height:0;border:1px solid var(--sl-line);border-radius:5px;background:var(--sl-soft);overflow:hidden}
+#sign-library-screen .gi-viewbar{display:flex;align-items:center;gap:6px;margin:0;padding:6px;border-bottom:1px solid var(--sl-line);flex-wrap:wrap;font-size:11px;flex:none}
+#sign-library-screen .gi-viewbar>div,#sign-library-screen .gi-view-context>div{display:flex;align-items:center;gap:3px}
+#sign-library-screen .gi-viewbar>.gi-view-context{margin-left:auto;gap:6px}
+#sign-library-screen .gi-workspace .gi-model{display:block;min-height:240px;position:relative;flex:1;overflow:hidden}
+#sign-library-screen .gi-workspace .gi-model>.gi-view,#sign-library-screen .gi-workspace .gi-model>.sl-viewer{height:100%;outline:none;position:relative}
+#sign-library-screen .gi-workspace .gi-model svg{height:100%;width:100%}
+#sign-library-screen .gi-workspace .gi-dimension text{font-size:14px;stroke-width:4px;font-weight:400}
+#sign-library-screen .gi-workspace .sl-camera-help{display:none}
+#sign-library-screen .gi-workspace .sl-camera-tools{right:6px;bottom:6px;padding:3px;gap:2px;max-width:calc(100% - 12px)}
+#sign-library-screen .gi-preview-label{padding:7px 9px;border-top:1px solid var(--sl-line);font-size:12px;background:var(--sl-bg);flex:none}
+#sign-library-screen .gi-preview-label b{font-weight:400;color:var(--sl-blue);margin-right:6px}
+#sign-library-screen .gi-workspace .gi-message{padding:7px 9px;font-size:12px;border:0;max-height:100px;overflow:auto}
+#sign-library-screen .gi-workspace .gi-message:empty{display:none}
+#sign-library-screen .gi-details{min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;padding-right:2px}
+#sign-library-screen .gi-details header{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gi-details h3{font-size:13px;color:var(--sl-text);margin:0}
+#sign-library-screen .gi-details h3 small{font-size:11px;font-weight:400;color:var(--sl-sub);margin-left:5px}
+#sign-library-screen .gi-workspace .gi-form{display:block}
+#sign-library-screen .gi-details>.gi-form{margin-top:12px;padding-top:12px;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gi-parts{padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--sl-line)}
+#sign-library-screen .gi-part-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}
+#sign-library-screen .gi-part-item{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;font-size:12px;margin:0}
+#sign-library-screen .gi-part-item>span:first-child{white-space:nowrap;color:var(--sl-sub)}
+#sign-library-screen .gi-part-size{width:auto;max-width:75%;min-width:0;border:1px solid var(--sl-line);border-radius:3px;background:white;color:#c22;padding:6px 22px 6px 8px;font:inherit;cursor:pointer}
+
+#sign-library-screen .gi-position-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px}
+#sign-library-screen .gi-position-table .gi-condition-column{width:37%}
+#sign-library-screen .gi-position-table td{padding:3px 2px 7px;border-bottom:1px solid var(--sl-line);vertical-align:middle}
+#sign-library-screen .gi-position-table .gi-post-row td{padding:7px 2px 1px;border-bottom:0}
+#sign-library-screen .gi-position-table tr.is-selected{background:#f4f7fc}
+#sign-library-screen .gi-position-table input,#sign-library-screen .gi-position-table select{width:100%;min-width:0;height:29px;border:1px solid var(--sl-line);border-radius:3px;padding:3px 4px;background:var(--sl-bg);color:var(--sl-danger);font:inherit;font-size:12px}
+#sign-library-screen .gi-position-table input[type=number]{text-align:right;font-variant-numeric:tabular-nums}
+#sign-library-screen .gi-position-table button{border:0;border-radius:3px;background:transparent;color:var(--sl-text);font:inherit;text-align:left;padding:4px 2px;white-space:normal}
+#sign-library-screen .gi-position-table button[aria-pressed=true]{color:var(--sl-blue)}
+#sign-library-screen .gi-position-table .gi-post-picker,#sign-library-screen .gi-position-table .gi-post-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,2fr);gap:5px;width:100%;min-height:29px;align-items:center}
+#sign-library-screen .gi-post-summary span{min-width:0;overflow-wrap:anywhere}
+#sign-library-screen .gi-position-table select:disabled{color:var(--sl-sub);background:#f1f3f5}
+#sign-library-screen .gi-condition-cell{display:flex;align-items:center;gap:4px;min-height:29px;min-width:0}
+#sign-library-screen .gi-condition-cell input{flex:1;min-width:0}
+#sign-library-screen .gi-condition-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:var(--sl-sub)}
+#sign-library-screen .gi-condition-cell>[data-gi-row-warning]{flex:none}
+#sign-library-screen .gi-position-table .gi-axis-input{display:flex;align-items:center;gap:4px;min-width:0;margin:0}
+#sign-library-screen .gi-axis-input>span,#sign-library-screen .gi-cell-value .gi-axis{color:var(--sl-sub);font-size:11px;flex:none}
+#sign-library-screen .gi-position-table .gi-cell-value{display:flex;align-items:center;justify-content:space-between;gap:4px;width:100%;min-height:29px;text-align:right;color:var(--sl-danger);font-variant-numeric:tabular-nums}
+#sign-library-screen .gi-workspace .gi-form>footer{padding:7px 0;border:0;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+#sign-library-screen .gi-workspace .gi-form>footer>.sl-sub{margin-right:auto;font-size:11px}
+#sign-library-screen .gi-signs{margin-top:6px;padding-top:8px;border-top:1px solid var(--sl-line)}
+#sign-library-screen .gi-sign-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+#sign-library-screen .gi-sign-grid button{display:flex;flex-direction:column;gap:5px;align-items:center;min-width:0;border:1px solid transparent;border-radius:4px;background:var(--sl-bg);padding:6px 3px;font-size:11px;color:var(--sl-text)}
+#sign-library-screen .gi-sign-grid button[aria-pressed=true]{color:var(--sl-blue);border-color:var(--sl-blue);background:var(--sl-select)}
+#sign-library-screen .gi-sign-grid img{width:100%;height:60px;object-fit:contain}
+@media(min-width:1600px){#sign-library-screen .gc-family-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1200px){#sign-library-screen .gc-grid-workspace{grid-template-columns:25% minmax(0,1fr)}#sign-library-screen .gc-family-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#sign-library-screen .gi-columns{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:10px}#sign-library-screen .gi-sign-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){#sign-library-screen .gi-columns{display:flex;flex-direction:column;overflow:auto}#sign-library-screen .gi-preview{min-height:350px;flex:none}#sign-library-screen .gi-details{overflow:visible;flex:none}#sign-library-screen .gc-family-grid{grid-template-columns:1fr}}
+
+/* 판 배치 치수는 정면·평면에서 편집하고 추출 치수는 검정색으로 구분한다. */
+#sign-library-screen .gpa-dimension{fill:none;stroke:#111;stroke-width:.8}
+#sign-library-screen .gpa-dimension text{fill:#111;stroke:white;stroke-width:4px;paint-order:stroke;font-size:12px;font-family:Arial,sans-serif}
+#sign-library-screen .gpa-dimension.is-editable{cursor:pointer;stroke:#c22}
+#sign-library-screen .gpa-dimension.is-editable text{fill:#c22}
+#sign-library-screen .gpa-dimension.is-editable:hover text{text-decoration:underline}
+#sign-library-screen .gpa-inline{width:100%;height:26px;box-sizing:border-box;padding:2px;border:1px solid transparent;border-radius:3px;background:#f5f7fa;color:#c22;text-align:center;font:13px Arial,sans-serif;pointer-events:auto}
+#sign-library-screen .gpa-inline:hover,#sign-library-screen .gpa-inline:focus{background:white;border-color:#c22;outline:none}
+#sign-library-screen .gpa-inline[aria-invalid=true]{background:#fff0f0;border-color:#c22}
+#sign-library-screen .gpa-tools{display:flex;justify-content:flex-end;align-items:center;gap:6px;padding:7px 0 0;margin-top:7px;border-top:1px solid var(--sl-line);background:white;font-size:12px;flex:none}
+#sign-library-screen .gpa-message{margin-right:auto;color:#c22;min-width:0}
+#sign-library-screen .gpa-session .gi-form>footer{display:none}
+#sign-library-screen .gi-occurrences{display:flex;gap:4px;padding:5px 6px;border-bottom:1px solid var(--sl-line);flex-wrap:wrap}
+#sign-library-screen .gi-occurrences[hidden]{display:none}
+#sign-library-screen .gi-occurrences [aria-pressed=true]{border-color:var(--sl-blue);background:var(--sl-select);color:var(--sl-blue)}
+
+#sign-library-screen .gc-family-grid .gs-spec-row{position:relative;min-height:90px;padding:8px;justify-content:center}
+#sign-library-screen .gc-family-grid .gs-spec-row>.gp-model-warning{position:absolute;right:7px;top:7px}
+#sign-library-screen .gc-overall-size{font-size:12px;color:var(--sl-text);white-space:nowrap;font-variant-numeric:tabular-nums}
+#sign-library-screen .gi-sign-card{min-width:0;position:relative}
+#sign-library-screen .gi-sign-grid:has(.gi-sign-card){grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+#sign-library-screen .gi-part-link{padding:4px 0;border:0;background:none;color:var(--sl-text);font-size:12px;text-align:left;cursor:pointer}
+#sign-library-screen .gi-part-link:hover{color:var(--sl-blue);text-decoration:underline}
+#sign-library-screen .gi-sign-card>[data-ga-use]{width:100%;position:relative}
+#sign-library-screen .gi-sign-card>[data-ga-use]>.gp-model-warning{position:absolute;top:5px;right:5px}
+#sign-library-screen .gi-sign-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:3px;padding-top:3px}
+#sign-library-screen .gi-sign-actions button,#sign-library-screen .gi-sign-actions summary{display:block;padding:3px 5px;border:1px solid var(--sl-line);border-radius:3px;background:white;color:var(--sl-text);font-size:11px;line-height:1.4;cursor:pointer;white-space:nowrap}
+#sign-library-screen .gi-sign-actions button:hover,#sign-library-screen .gi-sign-actions summary:hover{color:var(--sl-blue);border-color:var(--sl-blue)}
+#sign-library-screen .gi-sign-combinations>div{position:absolute;top:100%;left:0;z-index:5;background:white;padding:5px;border:1px solid var(--sl-line);box-shadow:0 3px 8px #0002;min-width:100%}
+#sign-library-screen .gi-sign-combinations>div>button{width:100%;margin:2px 0}
+
+#sign-library-screen .gs-post-title{display:inline-block;padding:8px 12px;font-weight:600;color:#111}

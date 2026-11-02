@@ -1,0 +1,40 @@
+.ga-editor{margin:10px 0 0;min-width:0;border-top:1px solid #d7dee9;padding-top:8px}
+.ga-table col:first-child{width:34%}.ga-table col:last-child{width:28px}
+.ga-use img{width:100px;height:72px;object-fit:contain;flex:none}.ga-use .sl-error{font-size:12px;margin:5px 0}.ga-use>span{min-width:0;flex:1;overflow-wrap:anywhere}
+.ga-head,.ga-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.ga-head{margin-bottom:8px}.ga-head>span,.ga-actions>span{margin-left:auto}.ga-head label{display:flex;align-items:center;gap:6px}
+.ga-table{width:100%;overflow-x:auto}.ga-table table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:12px}.ga-table th{text-align:left;font-weight:400;color:#53677b;padding:5px}.ga-table td{border-top:1px solid #d7dee9;padding:5px;vertical-align:top}.ga-table th:nth-child(1){width:23%}.ga-table th:nth-child(2){width:32%}.ga-table th:last-child{width:28px}.ga-table input,.ga-table select{width:100%;min-width:0;box-sizing:border-box;color:#cb2424;height:28px;margin:1px 0;padding:3px}.ga-actions{margin-top:8px}.ga-message{font-size:12px;margin:7px 0;min-height:15px}.ga-editor[aria-busy=true] button,.ga-editor[aria-busy=true] input,.ga-editor[aria-busy=true] select{pointer-events:none;opacity:.65}
+/* 페이지 높이는 고정하고 목록만 스크롤한다. 판 선택 후 목록 위치도 유지한다. */
+[data-guide-assets-library]{height:100%;min-height:0;min-width:0}
+.ga-library{display:grid;grid-template-columns:30% minmax(0,1fr);height:100%;min-height:0;overflow:hidden}
+.ga-library-list{display:flex;flex-direction:column;min-height:0;min-width:0;padding:8px;box-sizing:border-box}
+.ga-library-detail{min-height:0;min-width:0;overflow:hidden}.ga-library-list{border-right:1px solid #d7dee9}
+.ga-library-list .ga-actions{margin:0 0 10px;flex:none}
+.ga-families{display:flex;gap:4px;flex:none;padding-bottom:8px}.ga-families button{border:1px solid transparent;border-radius:4px;background:white;color:#111;padding:6px 10px}.ga-families button[aria-pressed=true]{background:#e7effb;border-color:#2460b8;color:#174f9c}.ga-families small{margin-left:4px;color:#53677b}
+.ga-unused{display:inline-flex;align-items:center;gap:3px;font-size:12px;white-space:nowrap}
+.ga-library .ga-message:empty{display:none}
+.ga-library .ga-message{flex:none;max-height:90px;overflow:auto}
+.ga-catalog-scroll,.ga-usage-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.ga-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;align-content:start;padding:1px}
+.ga-card{border:1px solid transparent;border-radius:4px;background:white;min-width:0;padding:7px 4px;color:#111;white-space:normal;font-size:12px;text-align:left}
+.ga-card[aria-pressed=true]{border-color:#2460b8;background:#e7effb}
+.ga-card small{display:block;overflow-wrap:anywhere;color:#53677b}
+#sign-library-screen .ga-library-detail>.gi-workspace{height:100%;box-sizing:border-box;min-height:0}
+.ga-list-heading{display:flex;justify-content:space-between;align-items:center;min-height:32px;font-size:13px;gap:6px;margin-bottom:6px}
+.ga-list-heading small{font-size:11px;color:#53677b;font-weight:400;margin-left:6px}
+.gpc-create{height:100%;box-sizing:border-box;min-height:0}
+.gpc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gpc-fields>label:first-child{grid-column:1/-1}
+.gpc-fields label,.gpc-add label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:#53677b;min-width:0}
+.gpc-create input,.gpc-create select{box-sizing:border-box;min-width:0;width:100%;border:1px solid #d7dee9;border-radius:3px;background:white;color:#c22;height:32px;padding:4px;font:inherit}
+.gpc-create .gpa-inline{height:26px}
+.gpc-create .gi-part-item select{flex:1;width:1px;font-size:12px}
+.gpc-create .gi-part-item button{border:0;background:white;padding:4px;color:#53677b}
+.gpc-add{border-top:1px solid #d7dee9;margin-top:12px;padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.gpc-add>div{display:grid;grid-template-columns:1fr 1fr auto;align-items:end;gap:6px}
+.ga-asset-actions{border-top:1px solid #d7dee9;padding-top:10px}
+.ga-use-detail{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:12px}
+.ga-use-detail .sl-error{flex-basis:100%;margin:0}
+@media(min-width:1600px){.ga-cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1200px){.ga-library{grid-template-columns:25% minmax(0,1fr)}.ga-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ga-editor .ga-table th{width:auto}.ga-editor .ga-table td{vertical-align:middle;padding:4px}.ga-editor .ga-table input,.ga-editor .ga-table select{min-width:0!important;max-width:100%;font-size:12px;padding:3px;white-space:nowrap}.ga-editor .ga-head>input{min-width:0;width:180px;color:#cb2424}.ga-table button{padding:2px 4px}.ga-table{overflow:visible}
+@media(max-width:700px){.ga-library{grid-template-columns:minmax(140px,34%) minmax(0,1fr)}.ga-cards{grid-template-columns:1fr}.ga-library-list{padding:8px}.ga-use{flex-wrap:wrap}.ga-use img{width:75px;height:55px}.ga-use button{margin-left:auto}.ga-library-list .ga-actions .sl-button{padding:5px;font-size:11px}}

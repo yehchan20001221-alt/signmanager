@@ -1,0 +1,376 @@
+/* 교통 공통데이터: 목록과 상세를 분리하고 같은 자리에서 조회·등록·수정한다. */
+#sign-library-screen .sl-common-work,#sign-library-screen .sl-common-work.sl-open{display:grid;grid-template-columns:minmax(250px,32%) minmax(0,1fr);gap:0;overflow:hidden;min-height:0}
+#sign-library-screen .sl-common-work:not(.sl-open){grid-template-columns:1fr}
+#sign-library-screen .sl-common-work .sl-library{min-width:0;overflow:auto;padding:12px;box-sizing:border-box}
+#sign-library-screen .sl-common-work .sl-grid{display:block;padding:0;overflow:visible}
+.sl-common-work .sl-common-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:12px;align-content:start}
+.sl-common-work .sl-common-card,.sl-common-work .sl-post-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-width:0;width:100%;min-height:170px;margin:0;padding:12px 8px;border:1px solid transparent;border-radius:5px;background:#fff;color:#203950;cursor:pointer}
+#sign-library-screen .sl-common-work .sl-post-card{min-height:170px;gap:5px;padding:10px 6px}
+.sl-common-work .sl-common-card:hover,.sl-common-work .sl-post-card:hover{background:#f3f6f9}
+.sl-common-work .sl-common-card[aria-pressed=true],.sl-common-work .sl-post-card[aria-pressed=true]{border-color:#2861aa;background:#e6edf7}
+.sl-common-work .sl-common-card svg,.sl-common-work .sl-post-icon{width:100%;height:90px;max-width:150px;object-fit:contain}
+.sl-common-work .sl-post-icon svg{height:90px;width:100%}
+.sl-common-work .sl-common-card strong,.sl-common-work .sl-post-number{font-size:14px;font-weight:500}
+.sl-common-work .sl-common-card small{color:#627386}
+.sl-common-road{margin-bottom:20px}
+.sl-common-road>h2{font-size:14px;font-weight:600;padding:8px 4px;border-bottom:1px solid #d8dfe8;margin:0 0 10px}
+#sign-library-screen .sl-common-work .sl-workspace-controls{position:static;inset:auto;z-index:auto;pointer-events:auto;display:block;min-width:0;overflow:auto;border-left:1px solid #d8dfe8;padding:0}
+#sign-library-screen .sl-common-work .sl-workspace-controls[hidden]{display:none}
+#sign-library-screen .sl-common-work .sl-common-detail{position:static;display:flex;flex-direction:column;min-height:100%;width:100%;margin:0;padding:16px;box-sizing:border-box;pointer-events:auto}
+.sl-common-detail .sl-panel-head{padding:0 0 12px;margin:0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sl-common-detail h2{font-size:18px;font-weight:500;margin:0}
+.sl-common-detail .sl-panel-pages{flex-wrap:wrap;flex-shrink:0;margin:0 0 14px}
+.sl-common-detail .sl-common-body{flex:1;min-width:0}
+.sl-common-detail .sl-common-columns{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(220px,1fr);gap:18px;align-items:start}
+.sl-common-detail .sl-common-information{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sl-common-detail .sl-common-model{min-width:0;background:#f3f5f7;border-radius:5px;overflow:hidden}
+.sl-common-detail .sl-view-tabs{position:static;display:flex;gap:4px;padding:8px;background:transparent}
+#sign-library-screen .sl-common-work .sl-master-stage{position:relative;height:clamp(270px,48vh,480px);min-height:0;width:100%;margin:0;padding:8px;box-sizing:border-box;overflow:hidden}
+.sl-common-detail .sl-master-stage>svg{width:100%;height:100%;display:block}
+.sl-common-detail .sl-master-sizes{position:static;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.sl-common-detail .sl-master-sizes button{min-width:70px;padding:7px 10px}
+.sl-common-detail .sl-master-sizes small{display:block;font-size:11px;margin-top:3px}
+.sl-common-detail .sl-master-geometry-name{font-size:12px;color:#617083}
+.sl-common-detail .sl-master-dimensions[hidden]{display:none}
+.sl-common-detail .sl-master-geometry-name[hidden]{display:none}
+#sign-library-screen .sl-common-work .sl-panel-head{padding:0 0 12px}
+#sign-library-screen .sl-common-work .sl-master-sizes{grid-template-columns:none;display:flex}
+#sign-library-screen .sl-common-work .sl-master-sizes button{flex:0 1 auto;min-height:0;height:auto;padding:6px 12px;text-align:center}
+#sign-library-screen .sl-common-work .sl-master-model-controls{border:0;padding:0;margin:0}
+.sl-common-detail .sl-master-model-controls .sl-model-file{width:100%}
+.sl-common-detail .sl-standard-positions th:first-child,.sl-common-detail .sl-standard-positions td:first-child{min-width:52px}
+.sl-common-detail .sl-standard-positions th:nth-child(2){min-width:76px;font-weight:400}
+.sl-common-detail .sl-standard-installation h3{font-size:14px;font-weight:500;margin:0 0 8px}
+#sign-library-screen .sl-common-detail .sl-master-model-controls{position:static;display:flex;flex-wrap:wrap;gap:8px;font-size:12px;overflow-wrap:anywhere}
+.sl-common-detail .sl-actions{flex-wrap:wrap}
+.sl-common-detail .sl-support-upload input[type=file]{display:block;max-width:100%;margin-top:8px}
+.sl-common-detail .sl-support-upload p{overflow-wrap:anywhere}
+.sl-common-detail .sl-model-file{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sl-common-detail .sl-model-file>span{overflow-wrap:anywhere;min-width:0;font-size:13px}
+.sl-common-detail .sl-model-file label{position:relative;flex-shrink:0;cursor:pointer}
+.sl-common-detail .sl-model-file input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.sl-common-detail .sl-model-dimensions table{border-collapse:collapse;width:100%;font-size:12px}
+.sl-common-detail .sl-model-dimensions th,.sl-common-detail .sl-model-dimensions td{border:1px solid #d7dfe8;padding:10px 8px;text-align:left}
+.sl-common-detail .sl-model-dimensions th{background:#f3f5f7;color:#536476;font-weight:400}
+.sl-common-detail .sl-model-dimensions td{text-align:right;font-variant-numeric:tabular-nums}
+.sl-common-detail .sl-model-dimensions h3{font-size:14px;font-weight:500}
+.sl-common-detail .sl-model-dimensions h3 small{float:right;color:#6d7e90;font-size:11px}
+#sign-library-screen .sl-common-work .sl-common-detail>.sl-footer{position:static;display:flex;justify-content:flex-end;gap:8px;flex-shrink:0;padding:12px 0 0;margin:16px 0 0;border-top:1px solid #d8dfe8;background:#fff;pointer-events:auto}
+#sign-library-screen .sl-common-work .sl-common-detail>.sl-footer[hidden]{display:none}
+#sign-library-screen .sl-common-work .sl-master-form>.sl-footer{position:sticky;bottom:0;z-index:2;padding-bottom:12px}
+#sign-library-screen .sl-button.sl-delete-button{background:var(--sl-danger);border-color:var(--sl-danger);color:#fff}
+#sign-library-screen .sl-button.sl-delete-button:hover{filter:brightness(.9)}
+.sl-common-detail .sl-master-preview{margin-top:16px}
+.sl-common-detail .sl-standard-positions{width:100%;border-collapse:collapse;font-size:13px}
+.sl-standard-positions th,.sl-standard-positions td{text-align:left;padding:9px 6px;border-bottom:1px solid #d8dfe8}
+.sl-standard-positions input{width:100%;min-width:70px;max-width:130px}
+.sl-common-detail .sl-table-scroll,.sl-common-detail .sl-auto-scroll{max-height:none;overflow:visible}
+.sl-common-detail .sl-new-form{margin:0;border:0;padding:0}
+.sl-common-detail .sl-support-info{padding:0}
+.sl-common-detail .sl-quantity-table{width:100%;font-size:13px}
+.sl-common-detail .sl-quantity-table input{min-width:0;width:100%;box-sizing:border-box}
+@media(max-width:1150px){#sign-library-screen .sl-common-work.sl-open{grid-template-columns:240px minmax(0,1fr)}#sign-library-screen .sl-common-work .sl-master-stage{height:270px}.sl-common-work .sl-common-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.sl-common-detail .sl-common-columns{grid-template-columns:minmax(0,1fr)}.sl-common-detail .sl-common-information{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.sl-common-detail .sl-support-info,.sl-common-detail .sl-standard-installation{grid-column:1/-1}.sl-common-work .sl-common-card,.sl-common-work .sl-post-card{padding:8px 4px}}
+@media(max-width:700px){#sign-library-screen .sl-common-work.sl-open{grid-template-columns:150px minmax(0,1fr)}.sl-common-work .sl-common-cards{grid-template-columns:1fr}.sl-common-detail .sl-common-information{display:flex}.sl-standard-positions th,.sl-standard-positions td{padding:6px 2px}}
+
+.sl-standard-positions input[type=checkbox]{width:auto;min-width:0;margin-right:5px}
+.sl-standard-positions label{display:flex;align-items:center;white-space:nowrap}
+.sl-inline-quantities .sl-quantity-cell{display:block;width:100%;min-height:32px;border:0;background:transparent;padding:5px;text-align:left;font:inherit;color:inherit}
+.sl-inline-quantities .sl-quantity-cell:hover{background:#edf3fc}
+.sl-inline-quantities td{vertical-align:middle}
+.sl-inline-quantities input,.sl-inline-quantities select{box-sizing:border-box;width:100%;min-width:0}
+.sl-material-control select{width:100%;min-height:30px}
+.sl-common-detail .sl-plate-settings{margin:12px 0}
+.sl-master-form .sl-common-information{gap:12px}
+.sl-master-step h3,.sl-master-form .sl-standard-installation h3{font-size:14px;font-weight:500;margin:0 0 8px}
+.sl-master-form .sl-standard-installation{display:grid;gap:14px}
+#sign-library-screen .sl-master-form .sl-plate-settings{display:grid;gap:6px;margin:0}
+#sign-library-screen .sl-master-form .sl-plate-identity{grid-template-columns:1fr}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-field,.sl-master-summary-row{display:grid;grid-template-columns:68px minmax(0,1fr);align-items:center;gap:8px;min-height:32px;font-size:13px}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-field>span,.sl-master-summary-row>span:first-child,.sl-geometry-label{font-size:12px;color:var(--sl-sub);white-space:nowrap}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-input{min-height:32px;padding:4px 8px}
+.sl-master-summary-row>span:last-child{padding:4px 8px}
+#sign-library-screen .sl-master-form .sl-master-geometry-name{margin:0;font-size:13px;color:inherit}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-form-grid{margin:0;padding:0;border:0;gap:8px 12px}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-geometry{display:grid;grid-template-columns:68px minmax(0,1fr);align-items:center;gap:8px;margin:0;padding:0;min-height:32px}
+#sign-library-screen .sl-master-form .sl-geometry legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sl-geometry-options{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;min-width:0}
+#sign-library-screen .sl-master-form .sl-geometry .sl-checks{gap:8px;margin:0}
+#sign-library-screen .sl-master-form .sl-geometry .sl-checks label{font-size:12px;white-space:nowrap}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-geometry-polygon{gap:8px;margin:0;align-items:center}
+#sign-library-screen .sl-master-form .sl-geometry-polygon>.sl-field{grid-template-columns:auto 46px;max-width:none;gap:4px}
+#sign-library-screen .sl-master-form .sl-geometry-polygon .sl-input{width:46px;min-width:0;padding:4px}
+#sign-library-screen .sl-master-form .sl-plate-settings .sl-geometry-inverted{padding:0;font-size:12px}
+#sign-library-screen .sl-master-form .sl-common-information>.sl-error{margin:0;padding:4px 0}
+#sign-library-screen .sl-master-form .sl-common-information>.sl-master-preview{margin:0;padding:6px 0}
+#sign-library-screen .sl-common-work .sl-master-sizes .sl-master-add-size{min-width:36px;align-self:center;padding:3px 8px;font-size:24px;line-height:28px}
+.sl-standard-supports{display:grid;gap:7px}
+.sl-standard-supports fieldset{margin:0;padding:0;border:0;min-width:0}
+.sl-standard-supports legend{font-size:11px;color:#617083;margin-bottom:4px}
+.sl-standard-supports fieldset>div{display:flex;flex-wrap:wrap;gap:5px 12px}
+.sl-standard-support{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;font-size:12px}
+.sl-standard-supports input{margin:0}
+.sl-standard-supports button{border:1px solid transparent;border-radius:3px;padding:3px 5px;background:transparent;color:#41546a;font:inherit;cursor:pointer}
+.sl-standard-supports button[aria-pressed=true]{border-color:#2861aa;background:#e6edf7;color:#174e91}
+.sl-standard-supports button:disabled{opacity:.5;cursor:default}
+.sl-master-form .sl-standard-positions [hidden]{display:none}
+.sl-master-stage:has(.sl-position-diagram){background:#f7f9fc!important}
+.sl-position-diagram text{font-family:inherit}
+.sl-position-post{opacity:.65}
+.sl-standard-model-status{position:absolute;bottom:8px;left:12px;margin:0;font-size:12px;color:#617083}
+.sl-position-plate{fill:#edf3fc;fill-opacity:.8;stroke:#2861aa;stroke-width:2}
+.sl-position-projection{fill:none;stroke:#5f7185;stroke-width:1;stroke-dasharray:5 4}
+.sl-position-point circle{stroke:#fff;stroke-width:1.5}
+.sl-position-point text{font-size:14px;font-weight:500;paint-order:stroke;stroke:#f7f9fc;stroke-width:4}
+.sl-position-origin{fill:#245b9f}
+.sl-position-target{fill:#b12626}
+#sign-library-screen .sl-position-diagram .sl-dimension text{font-size:22px}
+#sign-library-screen .sl-common-work .sl-master-form{height:100%;padding:8px 12px}
+.sl-master-form>.sl-panel-head{flex-wrap:wrap}
+#sign-library-screen .sl-master-form>.sl-panel-head .sl-master-sizes{margin:0;align-items:center}
+#sign-library-screen .sl-master-form>.sl-panel-head button{height:34px;min-height:34px;box-sizing:border-box;padding:5px 10px;line-height:22px;white-space:nowrap}
+#sign-library-screen .sl-master-form>.sl-panel-head .sl-master-sizes button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+#sign-library-screen .sl-master-form>.sl-panel-head [data-master-size-choice]{width:150px;min-width:150px}
+#sign-library-screen .sl-master-form>.sl-panel-head .sl-master-sizes small{display:inline;margin:0;white-space:nowrap}
+#sign-library-screen .sl-master-form>.sl-panel-head .sl-master-sizes small::before{content:'·';margin-right:6px}
+#sign-library-screen .sl-master-form>.sl-panel-head .sl-master-add-size{min-width:34px;padding:0;font-size:22px}
+#sign-library-screen .sl-common-work .sl-master-form>.sl-footer .sl-button{height:34px;min-height:34px;padding:5px 10px;box-sizing:border-box}
+#sign-library-screen .sl-common-work .sl-master-form>.sl-footer{padding:6px 0 0;margin-top:6px}
+.sl-master-form>.sl-common-body{display:flex;flex-direction:column;min-height:min-content}
+.sl-master-form .sl-common-columns{flex:1;align-items:stretch}
+.sl-master-form .sl-common-information{align-self:start}
+.sl-master-form .sl-common-model{display:flex;flex-direction:column;min-height:0}
+#sign-library-screen .sl-common-work .sl-master-form .sl-view-tabs{min-height:0;padding:6px}
+.sl-master-form .sl-view-tabs{align-items:flex-start}
+.sl-master-form .sl-view-tabs>[data-plate-view]{flex-shrink:0}
+.sl-standard-view-supports{margin-left:auto;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.sl-standard-view-supports>div{display:flex;align-items:center;gap:3px}
+.sl-standard-view-supports>div>span{font-size:11px;color:#617083;margin-right:2px}
+.sl-standard-view-roads{border-right:1px solid #d8dfe8;padding-right:6px}
+#sign-library-screen .sl-master-form .sl-standard-view-supports button{min-width:24px;padding:5px 6px}
+#sign-library-screen .sl-common-work .sl-master-form .sl-master-stage{flex:1;height:auto;min-height:220px;padding:0}
+#sign-library-screen .sl-common-work.sl-master-work:not(.sl-post-work) .sl-master-form>.sl-panel-head{padding:0 0 6px}
+@media(min-width:1151px){
+ #sign-library-screen .sl-common-work .sl-master-form>.sl-panel-head{display:grid;grid-template-columns:minmax(0,1fr) auto auto}
+}
+@media(min-width:1151px) and (max-height:900px){
+ .sl-master-form .sl-common-information,.sl-master-form .sl-standard-installation{gap:4px}
+ .sl-master-form .sl-common-columns{grid-template-columns:minmax(0,1.25fr) minmax(420px,1fr)}
+ .sl-master-form .sl-standard-supports fieldset>div{column-gap:6px}
+ .sl-master-step h3,.sl-master-form .sl-standard-installation h3{margin-bottom:4px}
+ #sign-library-screen .sl-master-form .sl-input{min-height:32px;padding:4px 8px}
+ #sign-library-screen .sl-master-form .sl-panel-head .sl-button,#sign-library-screen .sl-master-form .sl-footer .sl-button{min-height:32px;padding:5px 10px}
+ #sign-library-screen .sl-master-form .sl-field{flex-direction:row;align-items:center;gap:6px}
+ #sign-library-screen .sl-master-form .sl-field>span{flex-shrink:0;font-size:12px;white-space:nowrap}
+ .sl-master-form .sl-standard-installation p.sl-sub{margin:4px 0 0}
+ .sl-master-form .sl-master-step:first-child{display:flex;align-items:center;justify-content:space-between;gap:12px}
+ .sl-master-form .sl-master-step:first-child h3{flex-shrink:0;margin:0}
+ #sign-library-screen .sl-master-form .sl-master-step:first-child .sl-master-model-controls{flex:1;min-width:0}
+}
+/* 두 도로의 지주를 같은 목록에서 비교한다. */
+#sign-library-screen .sl-support-toolbar{justify-content:flex-end}
+.sl-support-groups{display:grid;gap:14px}
+.sl-support-groups .sl-common-road{margin:0}
+.sl-support-groups .sl-common-road>h2{padding:0 2px 6px;margin:0 0 8px}
+#sign-library-screen .sl-common-work .sl-library:has(.sl-support-groups){container-type:size}
+#sign-library-screen .sl-common-work .sl-support-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-card{display:flex;flex-direction:column;justify-content:center;min-height:0;height:clamp(112px,calc((100cqh - 100px)/4),176px);padding:10px 5px;gap:4px;overflow-wrap:normal}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-icon{grid-column:1/-1;height:60px;max-width:125px}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-icon svg{height:100%;width:100%}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-number{font-size:13px;font-weight:600}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-kind,#sign-library-screen .sl-common-work .sl-support-cards .sl-post-size{font-size:11px;line-height:17px}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-size,#sign-library-screen .sl-common-work .sl-support-cards .sl-sub{grid-column:1/-1}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-sub{font-size:10px;padding:0;margin:0}
+@media(max-height:800px){
+ #sign-library-screen .sl-common-work .sl-support-cards .sl-post-card{padding:6px 4px;gap:3px}
+ #sign-library-screen .sl-common-work .sl-support-cards .sl-post-icon{height:40px}
+ #sign-library-screen .sl-common-work .sl-support-cards .sl-post-kind,#sign-library-screen .sl-common-work .sl-support-cards .sl-post-size{line-height:15px}
+ #sign-library-screen .sl-common-work .sl-support-cards .sl-sub{line-height:12px}
+}
+/* 모양은 공통으로 입력하고 크기별 모델·지주·좌표를 한 화면에서 비교한다. */
+#sign-library-screen .sl-master-stacked>.sl-panel-head{display:flex}
+#sign-library-screen .sl-master-stacked .sl-common-columns{grid-template-columns:minmax(300px,1.15fr) minmax(450px,1fr)}
+#sign-library-screen .sl-master-stacked .sl-common-information{gap:5px}
+#sign-library-screen .sl-master-size-list{display:grid;gap:6px}
+#sign-library-screen .sl-master-size-row{min-width:0;margin:0;padding:6px 8px;border:1px solid #d8dfe8;border-radius:4px}
+#sign-library-screen .sl-master-size-row[data-active=true]{border-color:#2861aa}
+#sign-library-screen .sl-master-size-row>legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#sign-library-screen .sl-master-size-head{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+#sign-library-screen .sl-master-size-head>[data-master-size-choice]{min-width:52px;font-weight:600}
+#sign-library-screen .sl-master-size-head>.sl-master-model-controls{flex:1;min-width:0}
+#sign-library-screen .sl-master-stacked .sl-button,#sign-library-screen .sl-master-stacked .sl-master-size-head button{min-height:26px;padding:3px 7px;font-size:12px}
+#sign-library-screen .sl-master-stacked .sl-input{min-height:28px;height:28px;padding:3px 7px;font-size:12px}
+#sign-library-screen .sl-master-stacked .sl-field{display:flex;flex-direction:row;align-items:center;gap:5px;margin:0;min-width:0}
+#sign-library-screen .sl-master-stacked .sl-field>span{flex-shrink:0;font-size:11px;white-space:nowrap}
+#sign-library-screen .sl-master-stacked .sl-field input{width:100%;min-width:0}
+#sign-library-screen .sl-master-stacked .sl-master-dimensions{margin:0 0 4px;gap:10px}
+#sign-library-screen .sl-master-stacked .sl-standard-installation{gap:4px;margin:0}
+#sign-library-screen .sl-master-stacked .sl-standard-installation>section{position:relative;margin:0;padding:0}
+#sign-library-screen .sl-master-stacked .sl-standard-installation h3{display:none}
+#sign-library-screen .sl-master-stacked .sl-standard-supports{gap:3px;margin:0}
+#sign-library-screen .sl-master-stacked .sl-standard-supports fieldset{display:flex;align-items:center;gap:5px;margin:0;padding:0;border:0}
+#sign-library-screen .sl-master-stacked .sl-standard-supports legend{float:left;min-width:48px;font-size:10px;line-height:24px}
+#sign-library-screen .sl-master-stacked .sl-standard-supports fieldset>div{gap:4px 6px}
+#sign-library-screen .sl-master-stacked .sl-standard-supports button{padding:2px 4px;font-size:11px;min-height:24px}
+#sign-library-screen .sl-master-stacked .sl-standard-installation p.sl-sub{font-size:11px;margin:3px 0}
+#sign-library-screen .sl-master-stacked .sl-geometry{margin:4px 0;padding:0;display:flex;align-items:center;gap:10px}
+#sign-library-screen .sl-master-stacked .sl-geometry-result{font-size:12px;color:var(--sl-sub)}
+#sign-library-screen .sl-master-stacked .sl-geometry-options{gap:10px;align-items:center}
+#sign-library-screen .sl-master-stacked .sl-master-copy{text-align:right}
+#sign-library-screen .sl-master-stacked .sl-master-copy .sl-button{font-size:11px}
+/* 지주 도면을 유지하며 기본정보·조합·수량을 오른쪽에 함께 표시한다. */
+#sign-library-screen .sl-common-work .sl-support-unified{padding:8px 12px}
+#sign-library-screen .sl-support-unified .sl-common-columns{align-items:stretch}
+#sign-library-screen .sl-support-unified [data-common-model],#sign-library-screen .sl-support-unified .sl-common-model{display:flex;flex-direction:column;min-height:0}
+#sign-library-screen .sl-support-unified .sl-post-stage{flex:1;height:auto;min-height:300px}
+#sign-library-screen .sl-support-unified .sl-common-information{gap:2px;line-height:1.25}
+#sign-library-screen .sl-support-unified .sl-support-identity{display:grid;grid-template-columns:105px minmax(120px,1fr) 70px;gap:10px;align-items:end}
+#sign-library-screen .sl-support-unified .sl-support-info{display:grid;gap:4px}
+#sign-library-screen .sl-support-unified .sl-support-info .sl-field{margin:0;gap:3px}
+#sign-library-screen .sl-support-unified .sl-support-identity strong{height:28px;min-height:28px;padding:3px 6px;border:1px solid var(--sl-line);border-radius:4px;background:#f1f3f6;color:#52677c;font-weight:400;box-sizing:border-box}
+#sign-library-screen .sl-support-unified .sl-support-model-options{display:grid;grid-template-columns:minmax(0,1fr) minmax(100px,.6fr);gap:10px}
+#sign-library-screen .sl-support-unified .sl-support-model-options:not(:has(.sl-model-source)),#sign-library-screen .sl-support-unified .sl-support-model-options:has(>[hidden]){grid-template-columns:1fr}
+#sign-library-screen .sl-support-unified .sl-support-model-options:not(:has(>:not([hidden]))){display:none}
+#sign-library-screen .sl-support-unified .sl-support-upload{position:relative;padding:0;margin:0}
+#sign-library-screen .sl-support-unified .sl-support-upload h3{display:none}
+#sign-library-screen .sl-support-unified .sl-support-upload p{display:none}
+#sign-library-screen .sl-support-unified .sl-model-dimensions h3{margin:6px 0 4px;font-size:12px}
+#sign-library-screen .sl-support-unified .sl-model-dimensions table{table-layout:fixed}
+#sign-library-screen .sl-support-unified .sl-model-dimensions th{width:30%}
+#sign-library-screen .sl-support-unified .sl-model-dimensions td{width:20%}
+#sign-library-screen .sl-support-unified .sl-model-dimensions th,#sign-library-screen .sl-support-unified .sl-model-dimensions td{padding:5px 7px}
+#sign-library-screen .sl-support-unified .sl-common-information h3{font-size:13px;font-weight:600;margin:0 0 3px}
+#sign-library-screen .sl-support-unified .sl-support-combinations,#sign-library-screen .sl-support-unified .sl-support-quantities,#sign-library-screen .sl-support-unified .sl-support-road{padding-top:3px;border-top:1px solid #d8dfe8}
+.sl-support-road table{width:100%;table-layout:fixed;border-collapse:collapse}
+#sign-library-screen .sl-support-gaps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin:5px 0}
+#sign-library-screen .sl-support-gaps .sl-field{margin:0;gap:3px;font-size:11px}
+#sign-library-screen .sl-support-gaps input{width:100%;min-width:0;height:28px;min-height:28px;box-sizing:border-box;color:#c52626}
+.sl-support-road th,.sl-support-road td{padding:3px 4px;font-weight:400;text-align:left}
+.sl-support-road th:first-child{width:70px}
+.sl-support-road thead th{font-size:11px;color:#52677c}
+#sign-library-screen .sl-support-road input{width:100%;min-width:0;box-sizing:border-box;color:#c52626}
+.sl-support-road [aria-invalid=true]{border-color:#c52626}
+#sign-library-screen .sl-support-road button{border:1px solid transparent;border-radius:4px;padding:4px 6px;background:transparent;color:#111;font:inherit;cursor:pointer}
+#sign-library-screen .sl-support-road button[aria-pressed=true]{background:#e6eefb;border-color:#2861aa;color:#175dad}
+.sl-road-preview{width:100%;height:100%;display:flex;flex-direction:column;min-height:0}
+.sl-road-preview h3{margin:12px 16px 0;font-size:13px;font-weight:500;color:#111}
+.sl-road-preview .sl-master-canvas{flex:1;min-height:0;width:100%;height:100%}
+#sign-library-screen .sl-support-unified .sl-new-form{margin:0;padding:0;border:0}
+#sign-library-screen .sl-support-unified .sl-new-form>legend,#sign-library-screen .sl-support-unified .sl-new-form>h3{display:none}
+#sign-library-screen .sl-support-unified .sl-form-sizes{margin:0 0 5px;gap:8px;font-size:12px}
+#sign-library-screen .sl-support-unified .sl-pattern-options{display:flex;flex-wrap:wrap;gap:4px}
+#sign-library-screen .sl-support-unified .sl-pattern-card{padding:4px 6px;min-height:0;gap:4px;font-size:11px}
+#sign-library-screen .sl-support-unified .sl-auto-combinations{margin:5px 0 0}
+#sign-library-screen .sl-support-unified .sl-auto-combinations>h3,#sign-library-screen .sl-support-unified .sl-auto-combinations>p{display:none}
+#sign-library-screen .sl-support-unified .sl-auto-group{margin:0;border:0}
+#sign-library-screen .sl-support-unified .sl-auto-group summary{padding:3px 0;font-size:11px}
+#sign-library-screen .sl-support-unified .sl-support-quantities p{margin:0 0 4px;font-size:11px}
+#sign-library-screen .sl-support-unified .sl-inline-quantities{table-layout:fixed;width:100%}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th,#sign-library-screen .sl-support-unified .sl-inline-quantities td{padding:4px;font-size:11px}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th:nth-child(1){width:20%}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th:nth-child(2){width:35%}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th:nth-child(3){width:18%}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th:last-child{width:28px}
+#sign-library-screen .sl-support-unified .sl-inline-quantities [data-remove-quantity]{width:100%;min-width:0;min-height:24px;padding:0}
+#sign-library-screen .sl-support-unified .sl-input{min-height:28px;height:28px;padding:3px 6px}
+#sign-library-screen .sl-support-unified .sl-inline-quantities input,#sign-library-screen .sl-support-unified .sl-inline-quantities select,#sign-library-screen .sl-support-unified .sl-quantity-cell{min-width:0;max-width:100%;width:100%;height:28px;min-height:28px;padding:3px 6px;border:1px solid var(--sl-line);border-radius:4px;background:#fff;font:inherit;box-sizing:border-box}
+#sign-library-screen .sl-support-unified .sl-quantity-cell:disabled{background:#f1f3f6;color:#52677c;opacity:1}
+#sign-library-screen .sl-support-unified .sl-quantity-cell:not(:disabled):hover{background:#edf3fc;border-color:#2861aa}
+#sign-library-screen .sl-support-unified .sl-inline-quantities thead th:nth-child(3),#sign-library-screen .sl-support-unified .sl-inline-quantities td:nth-child(3) .sl-quantity-cell,#sign-library-screen .sl-support-unified .sl-inline-quantities [data-quantity-field=value]{text-align:right;font-variant-numeric:tabular-nums}
+#sign-library-screen .sl-support-unified .sl-inline-quantities .sl-quantity-condition-heading th{padding-top:9px;color:#52677c;font-weight:500;width:auto}
+#sign-library-screen .sl-support-unified .sl-quantity-actions{margin-top:4px;gap:5px}
+#sign-library-screen .sl-support-unified .sl-quantity-actions button,#sign-library-screen .sl-support-unified .sl-support-copy button{padding:3px 7px;min-height:26px;font-size:11px}
+#sign-library-screen .sl-support-unified .sl-support-copy{text-align:right}
+#sign-library-screen .sl-support-unified>.sl-footer{padding:5px 0 0;margin-top:5px;justify-content:flex-end}
+@media(max-width:1500px){
+ #sign-library-screen .sl-common-work.sl-open{grid-template-columns:minmax(200px,25%) minmax(0,1fr)}
+ #sign-library-screen .sl-master-stacked .sl-common-columns{grid-template-columns:minmax(250px,1fr) minmax(420px,1.15fr);gap:12px}
+#sign-library-screen .sl-support-unified .sl-common-columns{grid-template-columns:minmax(250px,1fr) minmax(390px,1.15fr);gap:12px}
+}
+@media(max-width:1050px){
+ #sign-library-screen .sl-common-work.sl-open{grid-template-columns:180px minmax(0,1fr)}
+ #sign-library-screen .sl-master-stacked .sl-common-columns,#sign-library-screen .sl-support-unified .sl-common-columns{grid-template-columns:1fr}
+ #sign-library-screen .sl-common-work .sl-master-stacked .sl-master-stage,#sign-library-screen .sl-support-unified .sl-post-stage{height:360px;flex:auto}
+}
+
+#sign-library-screen .sl-common-work .sl-common-cards:not(.sl-support-cards){grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+#sign-library-screen .sl-common-work .sl-common-card{min-height:125px;padding:6px 2px;gap:5px}
+#sign-library-screen .sl-common-work .sl-common-card svg{height:66px}
+#sign-library-screen .sl-common-work .sl-common-card strong{font-size:12px;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+#sign-library-screen .sl-master-stacked .sl-master-dimensions input[data-master-edit]{font-size:13px;font-weight:500;color:inherit}
+#sign-library-screen .sl-master-stacked .sl-master-new{margin:0}
+#sign-library-screen .sl-master-stacked .sl-geometry-polygon{margin:0;gap:6px;align-items:center}
+#sign-library-screen .sl-master-stacked .sl-geometry-inverted{padding:0}
+@media(max-width:1500px){#sign-library-screen .sl-common-work .sl-common-cards:not(.sl-support-cards){grid-template-columns:repeat(3,minmax(0,1fr))}}
+#sign-library-screen .sl-master-stacked .sl-master-dimensions{padding:0;border:0}
+#sign-library-screen .sl-master-stacked .sl-master-preview{margin:4px 0 0;padding:0;font-size:11px}
+@media(max-height:800px){
+ #sign-library-screen .sl-master-stacked .sl-master-size-row{padding:5px 7px}
+}
+
+#sign-library-screen .sl-support-unified .sl-common-model{flex:1}
+#sign-library-screen .sl-support-unified>.sl-panel-head{padding-bottom:6px}
+#sign-library-screen .sl-support-unified .sl-obj-actions{padding:0}
+#sign-library-screen .sl-support-unified .sl-pattern-options{margin:0}
+#sign-library-screen .sl-support-unified .sl-button{min-height:28px;padding:3px 7px;font-size:12px}
+#sign-library-screen .sl-support-unified .sl-inline-quantities th,#sign-library-screen .sl-support-unified .sl-inline-quantities td{padding:1px 4px}
+#sign-library-screen .sl-support-unified{height:100%}
+#sign-library-screen .sl-support-unified>.sl-common-body{display:flex;min-height:0}
+#sign-library-screen .sl-support-unified .sl-common-columns{min-height:0}
+#sign-library-screen .sl-support-unified .sl-common-information{overflow:auto;min-height:0}
+#sign-library-screen .sl-common-work .sl-support-cards .sl-post-card>span,#sign-library-screen .sl-common-work .sl-support-cards .sl-post-card>strong{white-space:nowrap}
+#sign-library-screen .sl-master-stacked>.sl-common-body{min-height:0}
+#sign-library-screen .sl-master-stacked .sl-common-columns{min-height:0}
+#sign-library-screen .sl-master-stacked .sl-common-information{overflow:auto;min-height:0}
+
+/* OBJ 치수와 고정 좌표는 편집 동작 없이 검정 글씨로 표시한다. */
+#sign-library-screen .sl-master-dimensions input[data-derived="true"]{color:#111;font-size:13px;font-weight:400;cursor:default;pointer-events:none}
+#sign-library-screen .sl-master-dimensions input[data-derived="true"]:hover{border-bottom-color:var(--sl-line)}
+#sign-library-screen .sl-master-stage .sl-dimension:not(.sl-master-measure) text{fill:#111}
+
+#sign-library-screen .sl-master-stacked .sl-common-information{align-self:stretch;gap:4px}
+#sign-library-screen .sl-master-stacked .sl-standard-supports{display:flex;flex-wrap:wrap;gap:3px 14px}
+#sign-library-screen .sl-master-stacked .sl-standard-supports legend{margin-bottom:0}
+#sign-library-screen .sl-master-stacked .sl-master-size-head{margin-bottom:0}
+#sign-library-screen .sl-master-stacked .sl-master-dimensions input[data-derived="true"]{height:20px;min-height:20px;padding-top:0;padding-bottom:0}
+#sign-library-screen .sl-master-stacked .sl-geometry{margin:0}
+#sign-library-screen .sl-master-stacked .sl-master-copy{display:none}
+
+#sign-library-screen .sl-master-stacked .sl-geometry-result{color:#111}
+
+/* 설치값은 형식별 한 행으로 배치하고 세 축의 열 너비를 모든 규격에서 맞춘다. */
+#sign-library-screen .sl-master-stacked .sl-standard-positions{table-layout:fixed;margin:3px 0 0;width:100%;font-size:11px}
+#sign-library-screen .sl-master-stacked .sl-standard-positions th,#sign-library-screen .sl-master-stacked .sl-standard-positions td{min-width:0;padding:1px 4px;border-bottom:1px solid #e4e8ee;font-weight:400}
+#sign-library-screen .sl-master-stacked .sl-standard-positions th:first-child{width:60px;padding-left:0}
+#sign-library-screen .sl-master-stacked .sl-standard-positions thead th{color:var(--sl-sub);font-size:10px;white-space:nowrap}
+#sign-library-screen .sl-master-stacked .sl-standard-positions tbody th{color:#111;white-space:nowrap}
+#sign-library-screen .sl-master-stacked .sl-standard-positions input{box-sizing:border-box;width:100%;min-width:0;max-width:none;height:26px;min-height:26px;padding:2px 6px;color:#c52525}
+#sign-library-screen .sl-master-stacked .sl-standard-positions input[readonly]{background:#eef1f5;color:#111;border-color:#dce2e9;cursor:default;box-shadow:none;appearance:textfield}
+#sign-library-screen .sl-master-stacked .sl-standard-positions input[readonly]::-webkit-inner-spin-button{appearance:none}
+#sign-library-screen .sl-master-common-fields{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}
+#sign-library-screen .sl-master-common-fields .sl-master-new{flex:1;min-width:220px}
+#sign-library-screen .sl-master-common-fields .sl-geometry{margin-left:auto;flex-shrink:0}
+#sign-library-screen .sl-master-common-fields .sl-geometry-label{display:none}
+
+/* 검색·등록을 관리 탭과 같은 줄에 두어 작업면의 세로 공간을 확보한다. */
+#sign-library-screen.sl-compact-common>.sl-head{padding:4px 16px}
+#sign-library-screen.sl-compact-common .sl-back{min-height:28px;padding:4px 10px}
+#sign-library-screen.sl-compact-common>.sl-main-tabs{align-items:center;gap:12px;padding:0 16px;flex-wrap:wrap}
+#sign-library-screen.sl-compact-common>.sl-main-tabs .sl-search{margin-left:auto;width:250px;min-height:30px;height:30px;padding:4px 9px}
+#sign-library-screen.sl-compact-common>.sl-main-tabs [data-action=new]{margin:4px 0;min-height:30px;padding:4px 10px}
+#sign-library-screen.sl-compact-common .sl-master-stacked>.sl-panel-head,#sign-library-screen.sl-compact-common .sl-support-unified>.sl-panel-head{padding:0 0 3px}
+#sign-library-screen.sl-compact-common .sl-master-stacked .sl-master-size-row{padding:2px 8px}
+#sign-library-screen.sl-compact-common .sl-master-stacked .sl-standard-installation{gap:1px}
+#sign-library-screen.sl-compact-common .sl-master-stacked .sl-master-size-list{gap:4px}
+#sign-library-screen .sl-position-top .sl-plan-plate{fill:none;stroke:#2861aa;stroke-width:2}
+#sign-library-screen .sl-position-top .sl-plan-size{fill:#111;font-size:15px}
+
+#sign-library-screen .sl-support-unified .sl-support-road th,#sign-library-screen .sl-support-unified .sl-support-road td{padding:1px 4px}
+
+#sign-library-screen .sl-support-unified .sl-support-quantities p{display:none}
+#sign-library-screen .sl-support-unified .sl-support-quantities h3 small{margin-left:8px;color:#627187;font-size:11px;font-weight:400}
+
+#sign-library-screen .sl-common-work .sl-support-unified>.sl-footer{padding-top:5px;margin-top:5px}
+#sign-library-screen .sl-support-unified .sl-support-model-options .sl-field{display:flex;flex-direction:row;align-items:center;gap:6px}
+#sign-library-screen .sl-support-unified .sl-support-model-options .sl-field>span{flex-shrink:0}
+#sign-library-screen .sl-support-unified .sl-support-model-options .sl-input{flex:1;width:0;min-width:0}
+#sign-library-screen .sl-support-unified .sl-matching-combinations>.sl-sub{display:none}

@@ -1,0 +1,22 @@
+#sign-library-screen .sl-obj-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#sign-library-screen .sl-obj-help{display:inline-grid;place-items:center;flex-shrink:0;width:26px;height:26px;padding:0;border:1px solid #a6b7cd;border-radius:50%;background:#fff;color:#255fa9;font-size:15px;font-weight:600;line-height:1}
+#sign-library-screen .sl-obj-help:hover{background:#eaf1fb;border-color:#255fa9}
+#sign-library-screen .sl-obj-help:focus-visible{outline:2px solid #255fa9;outline-offset:3px}
+#editor.obj-help-dialog{width:min(880px,calc(100vw - 32px));max-width:880px;max-height:calc(100dvh - 32px);padding:0;border:1px solid #cbd5e1;border-radius:6px;color:#20334a;background:#fff;overflow:auto}
+#editor.obj-help-dialog::backdrop{background:rgba(20,34,52,.35)}
+.obj-help-dialog .oh-body{padding:22px 24px}
+#editor.obj-help-dialog header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 16px;margin:0;border-bottom:1px solid #dce3ec}
+#editor.obj-help-dialog h2{font-size:18px;margin:0}
+#editor.obj-help-dialog button{color:#255fa9;font-weight:400;border-color:#d4dce7;padding:6px 12px;min-height:34px}
+.obj-help-dialog .oh-diagrams{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px}
+.obj-help-dialog .oh-diagrams section{min-width:0}
+.obj-help-dialog .oh-diagrams section+section{border-left:1px solid #dce3ec;padding-left:24px}
+.obj-help-dialog h3{font-size:14px;font-weight:600;margin:0}
+.obj-help-dialog svg{display:block;width:100%;height:260px;margin:12px 0 16px;font:14px 'Malgun Gothic',sans-serif}
+.obj-help-dialog svg text{fill:#526174}.obj-help-dialog svg .oh-material{fill:#20334a;font-size:16px;font-weight:600}.obj-help-dialog svg .oh-dimension{fill:#b52d39}
+.obj-help-dialog .oh-steel{fill:#e8eff8;stroke:#255fa9;stroke-width:1.6}.obj-help-dialog .oh-concrete{fill:#e6e8eb;stroke:#7f8b99;stroke-width:1.4}
+.obj-help-dialog .oh-inner{fill:#fff;stroke:#8e99a6;stroke-width:1.2;stroke-dasharray:4 4}
+.obj-help-dialog .oh-line{fill:none;stroke:#7f8b99;stroke-width:1}.obj-help-dialog .oh-measure{fill:none;stroke:#b52d39;stroke-width:1}
+.obj-help-dialog .oh-hidden{fill:none;stroke:#9ca8b6;stroke-width:1;stroke-dasharray:5 4}
+.obj-help-dialog p{font-size:13px;line-height:1.75;color:#526174;margin:0;word-break:keep-all}.obj-help-dialog strong{font-weight:600;color:#20334a}
+@media(max-width:650px){.obj-help-dialog .oh-body{padding:16px}.obj-help-dialog .oh-diagrams{grid-template-columns:1fr;gap:20px}.obj-help-dialog .oh-diagrams section+section{border-left:0;border-top:1px solid #dce3ec;padding:20px 0 0}.obj-help-dialog svg{height:230px}}
